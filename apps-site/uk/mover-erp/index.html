@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MoverERP — Розрахунок замовлення, таймер вантажників і чек клієнту</title>
+  <meta name="description" content="Офлайн-додаток для водіїв бусів, бригадирів вантажників та диспетчерів. Таймер, розрахунок поверхів, чек у Viber/Telegram, облік напарників та каси. 20 замовлень безкоштовно.">
+  <meta name="theme-color" content="#090d16">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MoverERP — Додаток для вантажних перевезень та мувінгу">
+  <meta property="og:description" content="Рахуй замовлення за 30 секунд: таймер бригади, поверхи, кілометраж, готовий чек у Viber та облік заробітку. Працює без інтернету.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#FACC15',
+              yellowHover: '#EAB308',
+              dark: '#0B0F17',
+              card: '#161F30',
+              border: '#233047',
+              textMuted: '#94A3B8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Стилізація фону та захист від перекриття плаваючою кнопкою */
+    body {
+      background-color: #0B0F17;
+      color: #F8FAFC;
+      padding-bottom: 90px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-yellow-400 selection:text-black">
+
+  <!-- Header -->
+  <header class="border-b border-brand-border bg-brand-dark/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-brand-yellow flex items-center justify-center font-black text-black text-lg shadow-md">M</span>
+        <span class="font-bold text-lg tracking-wide text-white">Mover<span class="text-brand-yellow">ERP</span></span>
+      </div>
+      <div class="flex items-center gap-3 text-xs font-semibold">
+        <a href="/en/mover-erp/" class="text-brand-textMuted hover:text-white transition px-2 py-1 rounded border border-brand-border">EN</a>
+        <span class="text-black bg-brand-yellow px-2 py-1 rounded">UA</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-3xl mx-auto px-4 pt-6 pb-8">
+    <div class="text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-brand-border text-brand-yellow text-xs font-medium">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        100% офлайн • Працює без інтернету
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+        Забудь про блокнот і калькулятор на замовленні
+      </h1>
+
+      <p class="text-base sm:text-lg text-brand-textMuted max-w-xl mx-auto">
+        Професійний кишеньковий інструмент для водіїв бусів, бригадирів та вантажників. Точний розрахунок за хвилину, залізні аргументи для клієнта та порядок у кишені.
+      </p>
+
+      <!-- Badge highlights -->
+      <div class="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
+        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
+          <p class="font-bold text-brand-yellow text-sm">20 замовлень</p>
+          <p class="text-brand-textMuted mt-0.5">безкоштовно</p>
+        </div>
+        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
+          <p class="font-bold text-white text-sm">Без реклами</p>
+          <p class="text-brand-textMuted mt-0.5">і спаму в роботі</p>
+        </div>
+        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
+          <p class="font-bold text-emerald-400 text-sm">Локально</p>
+          <p class="text-brand-textMuted mt-0.5">база в телефоні</p>
+        </div>
+      </div>
+
+      <!-- Action Button (Desktop/Tablet) -->
+      <div class="pt-3 hidden sm:block">
+        <a href="https://play.google.com/store/apps/details?id=com.fomichov.movererp" 
+           class="js-gp-link inline-flex items-center justify-center gap-3 bg-brand-yellow hover:bg-brand-yellowHover text-black font-extrabold text-base px-8 py-3.5 rounded-xl shadow-lg shadow-yellow-500/10 transition active:scale-98">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Встановити з Google Play
+        </a>
+      </div>
+    </div>
+
+    <!-- Core Features Grid -->
+    <section class="mt-10 space-y-3">
+      <h2 class="text-xl font-bold text-white px-1">Чому MoverERP окупається на першому ж виїзді:</h2>
+
+      <!-- Feature 1 -->
+      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
+        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">Розумний таймер роботи бригади</h3>
+          <p class="text-sm text-brand-textMuted mt-1">
+            Запуск в один клік на початку замовлення. Автоматичний підрахунок годин за вашою ставкою з можливістю врахувати мінімальне замовлення (наприклад, від 2 годин).
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
+        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h4v11H3zM10 6h4v15h-4zM17 2h4v19h-4z"></path></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">Поверхи, пронос і додатковий кілометраж</h3>
+          <p class="text-sm text-brand-textMuted mt-1">
+            Не тримайте в голові суми за ручний підйом без ліфта чи пронос дивана на 50 метрів від буса. Вкажіть поверхи та пронос — додаток одразу додасть їх до підсумку.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
+        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">Чесний чек для клієнта у месенджер</h3>
+          <p class="text-sm text-brand-textMuted mt-1">
+            Більше жодних сварок: «А за що така ціна?». Згенеруйте деталізований прозорий звіт по пунктах і надішліть клієнту в Viber чи Telegram прямо перед оплатою.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
+        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">Розрахунок напарників та диспетчерських</h3>
+          <p class="text-sm text-brand-textMuted mt-1">
+            Додаток сам відніме частку диспетчера (відсоток або фіксовану суму), порахує оплату кожному хлопцю з бригади та покаже ваш чистий залишок на руках.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
+        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-base">Борги та баланс каси</h3>
+          <p class="text-sm text-brand-textMuted mt-1">
+            Клієнт віддав частину на карту, а частину обіцяв скинути ввечері? Фіксуйте залишок як борг прямо в замовленні, щоб ніколи про нього не забути.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Model -->
+    <section class="mt-8 bg-gradient-to-b from-brand-card to-brand-dark border border-brand-border rounded-2xl p-5">
+      <h2 class="text-lg font-bold text-white">Прозорі умови без прихованих платежів</h2>
+      <ul class="mt-3 space-y-2 text-sm text-brand-textMuted">
+        <li class="flex items-center gap-2">
+          <span class="text-brand-yellow font-bold">✓</span> Перші 20 замовлень — повністю безкоштовно.
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-brand-yellow font-bold">✓</span> Жодної реклами, яка збиває таймер під час роботи.
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-brand-yellow font-bold">✓</span> Далі — доступна підписка PRO через Google Play для зняття лімітів і локального бекапу бази.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Developer Footer -->
+    <footer class="mt-10 pt-6 border-t border-brand-border text-center text-xs text-brand-textMuted space-y-3">
+      <p>Розробник: Maksym Fomichov • Україна</p>
+      <p>Контактна пошта підтримки: <a href="mailto:fomichov.developer@gmail.com" class="text-brand-yellow hover:underline">fomichov.developer@gmail.com</a></p>
+      <div class="flex justify-center gap-4 text-xs pt-1">
+        <a href="/uk/mover-erp/privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
+        <span>•</span>
+        <a href="/uk/mover-erp/terms.html" class="hover:text-white transition">Умови використання</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Sticky Bottom CTA for Mobile -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 p-3 bg-brand-dark/95 backdrop-blur border-t border-brand-border z-50">
+    <a href="https://play.google.com/store/apps/details?id=com.fomichov.movererp" 
+       class="js-gp-link flex items-center justify-center gap-2.5 w-full bg-brand-yellow hover:bg-brand-yellowHover text-black font-extrabold text-base py-3.5 px-4 rounded-xl shadow-lg shadow-yellow-500/20 active:scale-98 transition">
+      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+      Завантажити в Google Play
+    </a>
+  </div>
+
+  <!-- UTM Parameters Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM passthrough error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
