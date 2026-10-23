@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Політика конфіденційності — Додатки розробника Maksym Fomichov</title>
+  <meta name="description" content="Офіційна політика конфіденційності для мобільних додатків Linear Cutting, Margin Pro, Expense Sheet, Price Comparator, Get It!, Super Loto.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              blue: '#38bdf8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-40">
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="../uk/" class="flex items-center gap-2 font-bold text-sm text-white">
+        <div class="w-7 h-7 rounded-full border border-slate-700 bg-slate-800 flex items-center justify-center shrink-0">
+          <span class="font-black text-xs text-brand-blue select-none">MF</span>
+        </div>
+        <span>Maksym Fomichov Apps</span>
+      </a>
+      <a href="../uk/" class="text-xs text-slate-400 hover:text-white transition">← На головну</a>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-3xl mx-auto px-4 py-8 space-y-6 text-sm sm:text-base leading-relaxed flex-grow">
+    
+    <div class="border-b border-brand-border pb-4">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Загальна політика конфіденційності</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Останнє оновлення: 24 жовтня 2026 р.</p>
+    </div>
+
+    <!-- 1. Scope -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">1. Сфера застосування</h2>
+      <p class="text-slate-300">
+        Ця Політика конфіденційності регламентує порядок збору, використання та захисту інформації в наступних мобільних додатках для ОС Android, створених незалежним розробником Максимом Фомічовим (Maksym Fomichov, Developer ID: 5082361350201276993):
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs sm:text-sm font-mono">
+        <li>Лінійний Розкрій: Оптимізація (com.gmail.fomichov.m.linearcutting)</li>
+        <li>Margin Pro: Розрахунок Маржі (com.defun.checkmargins)</li>
+        <li>Expense Sheet: Облік витрат (com.apps.fomichov.m.ExpenseSheet)</li>
+        <li>Порівняння цін і Калькулятор (com.gmail.fomichov.m.compareprice)</li>
+        <li>Get It! Фразові дієслова (com.apps.fomichov.m.phrasalverbs)</li>
+        <li>Супер Лото: Розумний Генератор (com.gmail.fomichov.m.superlotogenerator)</li>
+      </ul>
+      <p class="text-slate-400 text-xs">
+        * Для додатку MoverERP діє окрема спеціалізована політика конфіденційності, доступна на його сторінці.
+      </p>
+    </section>
+
+    <!-- 2. Local Data -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">2. Локальне зберігання даних користувача</h2>
+      <p class="text-slate-300">
+        Більшість наших утиліт (Linear Cutting, Margin Pro, Expense Sheet, Price Comparator, Супер Лото) працюють за принципом <strong>пріоритету локальних даних</strong>:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs sm:text-sm">
+        <li>Усі ваші розрахунки, параметри розкрою, списки витрат, націнки, історія цін та збережені комбінації лотерей зберігаються виключно у вбудованій базі даних вашого пристрою.</li>
+        <li>Розробник не має прямого доступу до цієї інформації та не передає її на приватні сервери.</li>
+        <li>Функції створення резервних копій (Backup) та експорту в PDF/CSV зберігають файли безпосередньо у вибране вами сховище телефону.</li>
+      </ul>
+    </section>
+
+    <!-- 3. Cloud Sync (Get It!) -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">3. Хмарна синхронізація в додатку Get It!</h2>
+      <p class="text-slate-300">
+        У додатку <strong>Get It! Фразові дієслова</strong> для синхронізації словникового запасу, статусу вивчених слів та серії днів (Streak) між кількома пристроями використовується хмарна платформа <strong>Google Firebase</strong> (Firebase Authentication, Cloud Firestore).
+      </p>
+      <p class="text-slate-300">
+        Зберігаються лише дані ігрового прогресу та унікальний ідентифікатор користувача (UID). Детальніше про видалення цих записів читайте на нашій окремій сторінці <a href="data-deletion.html" class="text-brand-blue hover:underline">Видалення даних (Data Deletion)</a>.
+      </p>
+    </section>
+
+    <!-- 4. Third-Party Services: Ads, Analytics, Billing -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">4. Сторонні сервіси: Реклама, Аналітика та Платежі</h2>
+      <p class="text-slate-300">
+        Для підтримки безкоштовних версій та аналізу стабільності додатків інтегровано надійні сертифіковані SDK партнерів, які можуть збирати технічну інформацію (наприклад, рекламний ідентифікатор Google Advertising ID, модель пристрою, версію ОС та логи збоїв):
+      </p>
+
+      <div class="space-y-2 text-xs sm:text-sm text-slate-300">
+        <div class="bg-brand-card border border-brand-border p-3 rounded-lg">
+          <p class="font-bold text-white">Google AdMob &amp; Google Play Services</p>
+          <p class="text-slate-400 mt-1">Використовується для показу банерної та міжсторінкової реклами. Докладніше: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-brand-blue hover:underline">Політика конфіденційності Google</a>.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border p-3 rounded-lg">
+          <p class="font-bold text-white">AppLovin SDK</p>
+          <p class="text-slate-400 mt-1">Використовується для рекламної монетизації в окремих продуктах. Докладніше: <a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener" class="text-brand-blue hover:underline">Політика конфіденційності AppLovin</a>.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border p-3 rounded-lg">
+          <p class="font-bold text-white">Google Firebase (Crashlytics &amp; Analytics)</p>
+          <p class="text-slate-400 mt-1">Збір знеособлених технічних звітів про аварійні завершення роботи для виправлення помилок.</p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border p-3 rounded-lg">
+          <p class="font-bold text-white">Google Play Billing</p>
+          <p class="text-slate-400 mt-1">Усі покупки Premium-версій та відключення реклами здійснюються виключно через Google Play. Ми не маємо доступу до ваших банківських карток або платіжних реквізитів.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Super Loto Disclaimer -->
+    <section class="space-y-3 bg-brand-card border border-amber-500/40 p-4 rounded-xl">
+      <h2 class="text-base sm:text-lg font-bold text-brand-amber">5. Застереження щодо додатку «Супер Лото: Розумний Генератор»</h2>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Додаток «Супер Лото Генератор» є <strong>незалежним аналітичним та статистичним інструментом</strong> і не є офіційним продуктом оператора лотерей (УНЛ). Дані формуються на основі відкритих джерел про минулі тиражі.
+      </p>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Додаток не продає лотерейні квитки, не приймає ставки, не гарантує виграшу та не пропагує азартні ігри. Усі згенеровані комбінації є результатом математичних алгоритмів або генератора випадкових чисел. Закликаємо до відповідальної гри.
+      </p>
+    </section>
+
+    <!-- 6. Children's Privacy -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">6. Захист конфіденційності дітей</h2>
+      <p class="text-slate-300">
+        Наші додатки не призначені для дітей віком до 13 років. Ми свідомо не збираємо будь-яких персональних даних неповнолітніх осіб.
+      </p>
+    </section>
+
+    <!-- 7. Contacts -->
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">7. Контактні дані</h2>
+      <p class="text-slate-300">
+        З будь-яких питань щодо умов цієї Політики або роботи додатків звертайтеся до розробника:
+      </p>
+      <p class="font-semibold text-brand-amber">
+        <a href="mailto:fomichov.developer@gmail.com">fomichov.developer@gmail.com</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 border-t border-brand-border text-center text-xs text-slate-400">
+    <p>© 2026 Maksym Fomichov. Усі права захищено.</p>
+  </footer>
+
+</body>
+</html>
