@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запит на видалення даних (Data Deletion) — Maksym Fomichov Apps</title>
+  <meta name="theme-color" content="#0a0f1d">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              blue: '#38bdf8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-40">
+    <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
+      <a href="../uk/" class="flex items-center gap-2 font-bold text-sm text-white">
+        <span class="w-7 h-7 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-xs text-brand-blue">MF</span>
+        <span>Maksym Fomichov Apps</span>
+      </a>
+      <a href="../uk/" class="text-xs text-slate-400 hover:text-white transition">← На головну</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-8 space-y-6 text-sm sm:text-base leading-relaxed flex-grow">
+    <div class="border-b border-brand-border pb-4">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">Політика та інструкція щодо видалення даних користувачів</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Відповідно до вимог Google Play Data Safety Policy</p>
+    </div>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">1. Офлайн-додатки з локальним зберіганням</h2>
+      <p class="text-slate-300">
+        Наступні додатки розробника працюють автономно та зберігають усі розрахунки, списки та налаштування <strong>виключно в локальній пам'яті вашого пристрою</strong>:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs sm:text-sm">
+        <li><strong>MoverERP: Переїзди та вантажі</strong></li>
+        <li><strong>Лінійний Розкрій: Оптимізація</strong></li>
+        <li><strong>Margin Pro: Розрахунок Маржі</strong></li>
+        <li><strong>Expense Sheet: Облік витрат</strong></li>
+        <li><strong>Порівняння цін і Калькулятор</strong></li>
+        <li><strong>Супер Лото: Розумний Генератор</strong></li>
+      </ul>
+      <p class="text-slate-300">
+        Оскільки розробник не має доступу до ваших пристроїв і не зберігає ці дані на сторонніх серверах, для їх <strong>миттєвого та безповоротного видалення</strong> вам достатньо:
+      </p>
+      <ol class="list-decimal pl-5 space-y-1 text-slate-300 text-xs sm:text-sm">
+        <li>Відкрити «Налаштування» Android → «Додатки».</li>
+        <li>Обрати відповідний додаток.</li>
+        <li>Натиснути <strong>«Сховище та кеш» → «Очистити сховище» (Видалити дані)</strong>, або просто видалити сам додаток із пристрою.</li>
+      </ol>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">2. Додаток з хмарною синхронізацією (Get It! Фразові дієслова)</h2>
+      <p class="text-slate-300">
+        У додатку <strong>Get It!</strong> для синхронізації вивчених слів і прогресу між пристроями використовується хмарне сховище (Firebase Cloud Firestore / Authentication).
+      </p>
+      <p class="text-slate-300">
+        Ви можете ініціювати повне видалення вашого хмарного облікового запису та пов'язаного прогресу одним із двох способів:
+      </p>
+      <div class="bg-brand-card border border-brand-border p-4 rounded-xl space-y-3">
+        <p class="font-bold text-white text-sm">Спосіб 1: Через інтерфейс додатка</p>
+        <p class="text-xs text-slate-300">Перейдіть у «Налаштування» додатку Get It! → «Акаунт» → натисніть «Видалити акаунт та дані». Усі записи буде стерто автоматично.</p>
+        
+        <p class="font-bold text-white text-sm pt-2 border-t border-brand-border">Спосіб 2: Запит розробнику електронною поштою</p>
+        <p class="text-xs text-slate-300">
+          Надішліть листа з теми «Data Deletion Request: Get It!» на пошту:  
+          <a href="mailto:fomichov.developer@gmail.com" class="text-brand-amber font-mono">fomichov.developer@gmail.com</a>.  
+          У листі вкажіть ваш ідентифікатор користувача або пошту облікового запису Google, через який виконувався вхід. Дані будуть повністю видалені з серверів протягом 7 робочих днів.
+      </div>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">3. Рекламні ідентифікатори (AdMob / AppLovin)</h2>
+      <p class="text-slate-300">
+        Для скидання персоналізованих рекламних ідентифікаторів ви можете в будь-який момент скинути Advertising ID у налаштуваннях вашого Android-пристрою: <em>Налаштування → Google → Реклама → Скинути рекламний ідентифікатор</em> або видалити його.
+      </p>
+    </section>
+  </main>
+
+  <footer class="py-6 border-t border-brand-border text-center text-xs text-slate-400">
+    <p>© 2026 Maksym Fomichov. Усі права захищено.</p>
+  </footer>
+
+</body>
+</html>
