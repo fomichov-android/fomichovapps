@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fomichov-android.github.io/fomichovapps/sitemap.xml
