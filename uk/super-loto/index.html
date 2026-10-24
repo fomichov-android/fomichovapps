@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Супер Лото: Розумний Генератор — Статистичний генератор комбінацій</title>
+  <meta name="description" content="Розумний генератор лотерейних комбінацій на основі математичного аналізу тиражів: баланс парних чисел, гарячі та холодні номери, фільтри діапазонів сум. 100% офлайн.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Супер Лото: Розумний Генератор">
+  <meta property="og:description" content="Математичний аналіз та збалансована генерація комбінацій замість сліпого автовибору.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Schema.org Microdata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Супер Лото: Розумний Генератор",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "UAH"
+    }
+  }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Всі додатки</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/super-loto.png" alt="Super Loto Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=SL'">
+          <span class="font-extrabold text-base tracking-tight text-white">Супер Лото <span class="text-brand-amber">Генератор</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Встановити з Google Play</span>
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <a href="../../super-loto/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">UA</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Аналітичний помічник гравця
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Математика замість сліпої випадковості. <br>
+          <span class="text-brand-amber">Збалансовані комбінації чисел.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Припиніть грати абияк згенерованими числами з каси. Використовуйте статистику минулих тиражів, закріплюйте свої щасливі номери, фільтруйте перекоси парних/непарних та контролюйте суму комбінації.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Завантажити безкоштовно
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Як працює алгоритм ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Працює без інтернету</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Без реєстрації та акаунтів</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Не збирає особисті дані</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img src="../../assets/super-loto/screen-main-uk.png" 
+               alt="Супер Лото Генератор Головний екран" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Головний екран Генератора</div><p class=\'text-xs text-slate-400\'>Очікується скріншот:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/super-loto/screen-main-uk.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- DISCLAIMER BOX (Mandatory & Honest) -->
+    <section class="rounded-xl bg-brand-card border border-amber-500/40 p-4 sm:p-5 flex items-start gap-4">
+      <div class="text-brand-amber text-xl shrink-0 pt-0.5">⚠️</div>
+      <div class="space-y-1 text-xs text-slate-300 leading-relaxed">
+        <strong class="text-white block text-sm">Важливе роз'яснення для користувачів:</strong>
+        <p>Цей додаток є незалежним математичним та статистичним інструментом і не має відношення до компанії УНЛ (Українська Національна Лотерея). Додаток <strong>не приймає грошові ставки, не продає лотерейні квитки та не виплачує виграші</strong>. Жоден генератор не гарантує виграш у лотерею. Мета додатку — надати інструменти теорії ймовірностей та балансування комбінацій. Грайте відповідально.</p>
+      </div>
+    </section>
+
+    <!-- LOGIC COMPARISON -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Чим «Розумний Генератор» відрізняється від автовибору</h2>
+        <p class="text-sm text-slate-400">Коли ви берете випадковий білет у касі, генератор може видати абсурдну комбінацію, яка має вкрай низьку ймовірність випадіння в реальному тиражі.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Dumb Random -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Сліпий випадковий вибір (Автокаса):
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Перекоси чисел:</strong> часто генерує тільки парні або тільки непарні числа (наприклад, 2, 8, 14, 26, 38, 50).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Аномальні суми:</strong> числа збиваються в один край діапазону (занадто малі або занадто великі), що в тиражах трапляється вкрай рідко.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Неможливо закріпити своє:</strong> якщо у вас є 1 чи 2 важливі дати, решту чисел доводиться дописувати вручну навмання.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Smart Generator -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-amber-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-amber font-bold text-base">
+            <span>✓</span> Збалансований математичний підхід:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Баланс парності:</strong> правильне співвідношення 3:3 або 4:2, яке відповідає 80% реальних тиражів.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Діапазон гармонійної суми:</strong> алгоритм відсікає екстремальні нереалістичні комбінації.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Гнучка фіксація:</strong> закріпіть свої улюблені номери, а решту додаток підбере з урахуванням фільтрів.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Можливості додатку</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Інструменти для створення своєї стратегії</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔥
+          </div>
+          <h3 class="text-base font-bold text-white">Гарячі та холодні номери</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Аналізуйте, які кульки випадали найчастіше в останніх тиражах, а які знаходяться в «затишші» і давно не з'являлися на лототроні.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Фіксація улюблених чисел</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Виберіть від 1 до 5 обов'язкових чисел, у яких ви впевнені. Алгоритм зафіксує їх і згенерує лише решту кульок за заданими правилами.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚖️
+          </div>
+          <h3 class="text-base font-bold text-white">Фільтр парності та діапазонів</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Налаштуйте суворі критерії: виключення послідовних чисел (наприклад, 12, 13, 14), обмеження по десятках та контроль суми комбінації.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📋
+          </div>
+          <h3 class="text-base font-bold text-white">Історія та збережені квитки</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Зберігайте вдалі комбінації в пам'яті телефону. Більше не потрібно записувати числа на клаптиках паперу перед походом до точки продажу.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">100% Автономність (Офлайн)</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Генератор та вся локальна база працюють миттєво без підключення до інтернету. Додаток не гальмує і не потребує мобільної мережі.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🛡️
+          </div>
+          <h3 class="text-base font-bold text-white">Безпека та конфіденційність</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Ніяких реєстрацій, номерів телефонів чи прив'язки карт. Ваші згенеровані комбінації залишаються виключно всередині вашого смартфона.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Зручний інтерфейс для швидкої генерації</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Чітка візуалізація кульок, наочні фільтри та миттєва реакція на натискання.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-generator-uk.png" 
+                 alt="Екран налаштування фільтрів та генератора" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-generator-uk.png<br><span class=\'text-[10px] text-slate-500\'>Налаштування фільтрів</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Фільтри та налаштування комбінації</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-stats-uk.png" 
+                 alt="Екран статистики кульок та тиражів" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-uk.png<br><span class=\'text-[10px] text-slate-500\'>Статистика тиражів</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Гарячі та холодні номери</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-saved-uk.png" 
+                 alt="Екран збережених варіантів квитків" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-saved-uk.png<br><span class=\'text-[10px] text-slate-500\'>Збережені варіанти</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Збережені квитки для гри</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Часті запитання</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи гарантує додаток виграш у лотерею?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Жодна програма у світі не здатна гарантувати виграш у лото, оскільки кожен розіграш є випадковою подією. Додаток створений як аналітичний інструмент, який допомагає виключити статистично неправдоподібні варіанти та сформувати гармонійні комбінації.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи можна купити лотерейний квиток прямо в додатку?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Додаток не продає квитки і не проводить лотереї. Ви генеруєте комбінації в додатку, а потім переносите їх у квиток на офіційних точках продажу або на офіційному сайті оператора.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи потрібен інтернет для генерації чисел?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Усі алгоритми генерації, фільтри та локальна база збережених комбінацій працюють на 100% автономно на вашому телефоні.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Спробуйте розумний підхід до гри</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Завантажуйте «Супер Лото Генератор» безкоштовно з Google Play та перевірте статистику прямо зараз.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Завантажити з Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Супер Лото Генератор • Продукт розробника Maksym Fomichov</p>
+        <p>Підтримка: <a href="mailto:fomichov.developer@gmail.com?subject=Питання%20щодо%20Супер%20Лото%20Генератора" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">Всі додатки автора →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
