@@ -2,211 +2,433 @@
 <html lang="uk" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>MoverERP — Розрахунок замовлення, таймер вантажників і чек клієнту</title>
-  <meta name="description" content="Офлайн-додаток для водіїв бусів, бригадирів вантажників та диспетчерів. Таймер, розрахунок поверхів, чек у Viber/Telegram, облік напарників та каси. 20 замовлень безкоштовно.">
-  <meta name="theme-color" content="#090d16">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoverERP — Розрахунок переїздів та вантажів для водіїв і вантажників</title>
+  <meta name="description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, чек у Viber та облік заробітку. 100% офлайн.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MoverERP — Додаток для вантажних перевезень та мувінгу">
-  <meta property="og:description" content="Рахуй замовлення за 30 секунд: таймер бригади, поверхи, кілометраж, готовий чек у Viber та облік заробітку. Працює без інтернету.">
-  
+  <meta property="og:title" content="MoverERP: Переїзди та вантажі">
+  <meta property="og:description" content="Чесний розрахунок замовлення за 30 секунд без суперечок з клієнтом. Працює 100% без інтернету.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
           colors: {
             brand: {
-              yellow: '#FACC15',
-              yellowHover: '#EAB308',
-              dark: '#0B0F17',
-              card: '#161F30',
-              border: '#233047',
-              textMuted: '#94A3B8'
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              borderLight: '#334155',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
             }
           }
         }
       }
     }
   </script>
-  <style>
-    /* Стилізація фону та захист від перекриття плаваючою кнопкою */
-    body {
-      background-color: #0B0F17;
-      color: #F8FAFC;
-      padding-bottom: 90px;
-    }
-  </style>
 </head>
-<body class="font-sans antialiased selection:bg-yellow-400 selection:text-black">
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="border-b border-brand-border bg-brand-dark/90 backdrop-blur sticky top-0 z-40">
-    <div class="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="w-8 h-8 rounded-lg bg-brand-yellow flex items-center justify-center font-black text-black text-lg shadow-md">M</span>
-        <span class="font-bold text-lg tracking-wide text-white">Mover<span class="text-brand-yellow">ERP</span></span>
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Всі додатки</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/movererp.png" alt="MoverERP Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=M'">
+          <span class="font-extrabold text-base tracking-tight text-white">Mover<span class="text-brand-amber">ERP</span></span>
+        </a>
       </div>
-      <div class="flex items-center gap-3 text-xs font-semibold">
-        <a href="/en/mover-erp/" class="text-brand-textMuted hover:text-white transition px-2 py-1 rounded border border-brand-border">EN</a>
-        <span class="text-black bg-brand-yellow px-2 py-1 rounded">UA</span>
+
+      <div class="flex items-center gap-3">
+        <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.movererp" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Встановити з Google Play
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card">
+          <a href="../../mover-erp/" class="px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2.5 py-1 bg-brand-amber text-black">UA</span>
+        </div>
       </div>
+
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main class="max-w-3xl mx-auto px-4 pt-6 pb-8">
-    <div class="text-center space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-brand-border text-brand-yellow text-xs font-medium">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        100% офлайн • Працює без інтернету
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-20">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Для приватних бусів, вантажників і бригадирів
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Чесний розрахунок виїзду за 30 секунд. <br>
+          <span class="text-brand-amber">Без суперечок з клієнтом.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Забудьте про паперові блокноти й калькулятор. Засікайте час роботи в один клік, додавайте поверхи кнопками [ - ] та [ + ], відправляйте прозорий чек у Viber або Telegram і чітко знайте свій чистий дохід.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.movererp" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Спробувати 20 замовлень Free
+            </a>
+            <a href="#features" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Як це працює ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Працює без інтернету</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Жодної реклами</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Дані тільки на телефоні</span>
+          </div>
+        </div>
+
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-        Забудь про блокнот і калькулятор на замовленні
-      </h1>
-
-      <p class="text-base sm:text-lg text-brand-textMuted max-w-xl mx-auto">
-        Професійний кишеньковий інструмент для водіїв бусів, бригадирів та вантажників. Точний розрахунок за хвилину, залізні аргументи для клієнта та порядок у кишені.
-      </p>
-
-      <!-- Badge highlights -->
-      <div class="grid grid-cols-3 gap-2 pt-2 text-center text-xs">
-        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
-          <p class="font-bold text-brand-yellow text-sm">20 замовлень</p>
-          <p class="text-brand-textMuted mt-0.5">безкоштовно</p>
-        </div>
-        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
-          <p class="font-bold text-white text-sm">Без реклами</p>
-          <p class="text-brand-textMuted mt-0.5">і спаму в роботі</p>
-        </div>
-        <div class="bg-brand-card p-2.5 rounded-xl border border-brand-border">
-          <p class="font-bold text-emerald-400 text-sm">Локально</p>
-          <p class="text-brand-textMuted mt-0.5">база в телефоні</p>
+      <!-- Hero Phone Screenshot / Mockup Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-[320px] rounded-[36px] p-2 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-2xl border border-slate-700">
+          <div class="rounded-[28px] overflow-hidden bg-brand-dark aspect-[9/19.5] relative flex items-center justify-center">
+            <img src="../../assets/movererp/screen-main-uk.png" 
+                 alt="MoverERP Головний екран розрахунку" 
+                 class="w-full h-full object-cover"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center space-y-3\'><div class=\'text-brand-amber font-extrabold text-lg\'>Головний екран MoverERP</div><p class=\'text-xs text-slate-400\'>Покладіть сюди скріншот з Pixel 10 Pro:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/movererp/screen-main-uk.png</code></p></div>'">
+          </div>
         </div>
       </div>
 
-      <!-- Action Button (Desktop/Tablet) -->
-      <div class="pt-3 hidden sm:block">
-        <a href="https://play.google.com/store/apps/details?id=com.fomichov.movererp" 
-           class="js-gp-link inline-flex items-center justify-center gap-3 bg-brand-yellow hover:bg-brand-yellowHover text-black font-extrabold text-base px-8 py-3.5 rounded-xl shadow-lg shadow-yellow-500/10 transition active:scale-98">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
-          Встановити з Google Play
+    </section>
+
+    <!-- BEFORE / AFTER COMPARISON -->
+    <section class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Чому звичайний блокнот і калькулятор більше не працюють</h2>
+        <p class="text-sm text-slate-400">Розрахунок переїзду на виїзді — це стрес, особливо коли треба одночасно стежити за речами й часом.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Old Way -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Як було раніше (на коліні):
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Суперечки щодо підсумку:</strong> клієнт перепитує, звідки взялася сума і чому час округлився саме так.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Загублені гроші:</strong> забули записати 2 поверхи пішки, зайві 50 метрів проносу або додатковий заїзд на склад.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Плутанина з бригадою:</strong> хто з напарників скільки отримав, скільки віддати диспетчеру і хто ще винен вам гроші.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- MoverERP Way -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-amber-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-amber font-bold text-base">
+            <span>✓</span> З додатком MoverERP:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Залізобетонна наочність:</strong> готовий розрахунок надсилається клієнту картинкою або текстом в один дотик.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Точний підрахунок до дрібниць:</strong> швидкі кнопки [ - ] та [ + ] для поверхів, важких речей (>80 кг) і кілометрів.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Повний порядок у касі:</strong> окремо готівка й картка, список боржників та автоматичний чистий заробіток.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section id="features" class="space-y-10">
+      <div class="border-b border-brand-border pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Функціонал для реальної роботи</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Все, що потрібно на виїзді — в одній руці</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⏱️
+          </div>
+          <h3 class="text-base font-bold text-white">Таймер і гнучкий тариф авто</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Автоматичний підрахунок мінімального замовлення, подачі авто та погодинної оплати. Ваші особисті правила округлення хвилин (наприклад, по 15 або 30 хв).
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🪜
+          </div>
+          <h3 class="text-base font-bold text-white">Поверхи, пронос і негабарит</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Зручні кнопки [ - ] та [ + ] для кожного параметра. Оплата за піші поверхи, метраж проносу від під'їзду, важкі речі (>80 кг), рокла, гідроборт або погодинно.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🧾
+          </div>
+          <h3 class="text-base font-bold text-white">Чек для клієнта в месенджер</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Жодних розрахунків на пальцях. Натисніть кнопку — і додаток сформує зрозумілу розкладку по годинах, кілометрах та поверхах для відправки у Viber чи Telegram.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🤝
+          </div>
+          <h3 class="text-base font-bold text-white">Напарники та диспетчери</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Записуйте, хто був у бригаді, скільки віддати хлопцям і яка комісія диспетчера. Передавайте замовлення колегам за відсоток або фіксовану суму.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            💵
+          </div>
+          <h3 class="text-base font-bold text-white">Каса, борги й чистий заробіток</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Роздільний облік готівки й переказів на картку. Список боржників, фіксація витрат на паливо чи ТО та підрахунок вашого реального чистого прибутку.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">100% Офлайн і надійність</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Працює у підвалах, ліфтах, новобудовах і за містом. Уся база контактів і замовлень зберігається тільки у вашому телефоні без доступу третіх осіб.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Простий інтерфейс для швидкої роботи</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Великі кнопки, чіткий шрифт і темна тема, зручна для роботи в кабіні буса в будь-який час доби.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center">
+          <div class="rounded-2xl border border-slate-700 bg-slate-900 p-2 overflow-hidden aspect-[9/18] flex items-center justify-center">
+            <img src="../../assets/movererp/screen-loaders-uk.png" 
+                 alt="Екран підрахунку поверхів та проносу" 
+                 class="w-full h-full object-cover rounded-xl"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-4 text-xs text-slate-400\'>screen-loaders-uk.png<br><span class=\'text-[10px] text-slate-500\'>Поверхи та пронос</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Поверхи, негабарит і пронос</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center">
+          <div class="rounded-2xl border border-slate-700 bg-slate-900 p-2 overflow-hidden aspect-[9/18] flex items-center justify-center">
+            <img src="../../assets/movererp/screen-receipt-uk.png" 
+                 alt="Екран формування чека для клієнта" 
+                 class="w-full h-full object-cover rounded-xl"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-4 text-xs text-slate-400\'>screen-receipt-uk.png<br><span class=\'text-[10px] text-slate-500\'>Чек для клієнта</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Деталізація для клієнта в 1 клік</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center">
+          <div class="rounded-2xl border border-slate-700 bg-slate-900 p-2 overflow-hidden aspect-[9/18] flex items-center justify-center">
+            <img src="../../assets/movererp/screen-finance-uk.png" 
+                 alt="Екран каси та напарників" 
+                 class="w-full h-full object-cover rounded-xl"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-4 text-xs text-slate-400\'>screen-finance-uk.png<br><span class=\'text-[10px] text-slate-500\'>Каса та боржники</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Каса, напарники та боржники</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRICING & HONEST TERMS -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border-2 border-brand-amber/50 p-6 sm:p-10 space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <span class="text-xs font-black uppercase tracking-wider text-brand-amber">Чесні умови без кота в мішку</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Спробуйте на реальних замовленнях</h2>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          Всі функції додатку відкриті одразу. Ви можете повністю налаштувати свої тарифи та протестувати MoverERP на виїздах абсолютно безкоштовно.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto pt-2">
+        
+        <!-- Free Tier -->
+        <div class="bg-[#0a0f1d] border border-brand-border rounded-xl p-6 space-y-4 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-slate-400 uppercase">Стартовий пакет</span>
+            <div class="text-2xl font-black text-white">20 замовлень</div>
+            <p class="text-xs text-slate-300">Повний доступ до всіх калькуляторів, таймера, клієнтської бази та відправки звітів у месенджери.</p>
+          </div>
+          <div class="text-xs font-bold text-brand-emerald bg-emerald-950/40 border border-emerald-800/40 px-3 py-2 rounded-lg text-center">
+            0 грн • Безкоштовно назавжди
+          </div>
+        </div>
+
+        <!-- PRO Tier -->
+        <div class="bg-[#0a0f1d] border border-amber-500/60 rounded-xl p-6 space-y-4 flex flex-col justify-between relative">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-amber uppercase">Підписка PRO</span>
+              <span class="text-[10px] font-black uppercase bg-brand-amber text-black px-2 py-0.5 rounded">Без лімітів</span>
+            </div>
+            <div class="text-2xl font-black text-white">Необмежено</div>
+            <p class="text-xs text-slate-300">Зняття будь-яких обмежень на кількість виїздів + збереження резервних копій бази даних у файл.</p>
+          </div>
+          <div class="text-xs text-slate-400 border-t border-slate-800 pt-3">
+            Оплата безпечно через Google Play Billing. Скасування підписки в будь-який момент в 1 клік.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center pt-2">
+        <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.movererp" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          Встановити MoverERP з Google Play →
         </a>
       </div>
-    </div>
+    </section>
 
-    <!-- Core Features Grid -->
-    <section class="mt-10 space-y-3">
-      <h2 class="text-xl font-bold text-white px-1">Чому MoverERP окупається на першому ж виїзді:</h2>
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Часті запитання</h2>
 
-      <!-- Feature 1 -->
-      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
-        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-white text-base">Розумний таймер роботи бригади</h3>
-          <p class="text-sm text-brand-textMuted mt-1">
-            Запуск в один клік на початку замовлення. Автоматичний підрахунок годин за вашою ставкою з можливістю врахувати мінімальне замовлення (наприклад, від 2 годин).
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи потрібен інтернет для роботи на виїзді?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Додаток розроблявся спеціально для автономної роботи. Ви можете рахувати замовлення в підвалах, бетонних новобудовах чи на трасі без мобільного зв'язку. Інтернет потрібен лише для надсилання повідомлення клієнту у Viber чи Telegram.
           </p>
         </div>
-      </div>
 
-      <!-- Feature 2 -->
-      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
-        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 10h4v11H3zM10 6h4v15h-4zM17 2h4v19h-4z"></path></svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-white text-base">Поверхи, пронос і додатковий кілометраж</h3>
-          <p class="text-sm text-brand-textMuted mt-1">
-            Не тримайте в голові суми за ручний підйом без ліфта чи пронос дивана на 50 метрів від буса. Вкажіть поверхи та пронос — додаток одразу додасть їх до підсумку.
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи бачить клієнт мої внутрішні витрати й виплати напарникам?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Категорично ні. Клієнтський чек формується окремо: там видно тільки тариф машини, відпрацьовані години, поверхи, кілометри та фінальну суму. Ваша каса, прибуток і відсотки диспетчера залишаються виключно у вашому телефоні.
           </p>
         </div>
-      </div>
 
-      <!-- Feature 3 -->
-      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
-        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-white text-base">Чесний чек для клієнта у месенджер</h3>
-          <p class="text-sm text-brand-textMuted mt-1">
-            Більше жодних сварок: «А за що така ціна?». Згенеруйте деталізований прозорий звіт по пунктах і надішліть клієнту в Viber чи Telegram прямо перед оплатою.
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Що станеться після завершення 20 безкоштовних замовлень?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Всі раніше збережені замовлення, контакти та тарифи залишаться доступними для перегляду. Для створення нових замовлень додаток запропонує оформити зручну щомісячну підписку PRO через Google Play.
           </p>
         </div>
-      </div>
 
-      <!-- Feature 4 -->
-      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
-        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-white text-base">Розрахунок напарників та диспетчерських</h3>
-          <p class="text-sm text-brand-textMuted mt-1">
-            Додаток сам відніме частку диспетчера (відсоток або фіксовану суму), порахує оплату кожному хлопцю з бригади та покаже ваш чистий залишок на руках.
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Як перенести дані, якщо я зміню телефон?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            У налаштуваннях додатку є функція створення резервної копії (Backup). Ви зберігаєте файл бази на телефон або надсилаєте його собі в Telegram, а на новому пристрої натискаєте «Відновити з файлу».
           </p>
         </div>
-      </div>
 
-      <!-- Feature 5 -->
-      <div class="bg-brand-card border border-brand-border rounded-xl p-4 flex gap-3.5 items-start">
-        <div class="p-2.5 rounded-lg bg-yellow-400/10 text-brand-yellow shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-        </div>
-        <div>
-          <h3 class="font-bold text-white text-base">Борги та баланс каси</h3>
-          <p class="text-sm text-brand-textMuted mt-1">
-            Клієнт віддав частину на карту, а частину обіцяв скинути ввечері? Фіксуйте залишок як борг прямо в замовленні, щоб ніколи про нього не забути.
-          </p>
-        </div>
       </div>
     </section>
 
-    <!-- Pricing / Model -->
-    <section class="mt-8 bg-gradient-to-b from-brand-card to-brand-dark border border-brand-border rounded-2xl p-5">
-      <h2 class="text-lg font-bold text-white">Прозорі умови без прихованих платежів</h2>
-      <ul class="mt-3 space-y-2 text-sm text-brand-textMuted">
-        <li class="flex items-center gap-2">
-          <span class="text-brand-yellow font-bold">✓</span> Перші 20 замовлень — повністю безкоштовно.
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="text-brand-yellow font-bold">✓</span> Жодної реклами, яка збиває таймер під час роботи.
-        </li>
-        <li class="flex items-center gap-2">
-          <span class="text-brand-yellow font-bold">✓</span> Далі — доступна підписка PRO через Google Play для зняття лімітів і локального бекапу бази.
-        </li>
-      </ul>
-    </section>
-
-    <!-- Developer Footer -->
-    <footer class="mt-10 pt-6 border-t border-brand-border text-center text-xs text-brand-textMuted space-y-3">
-      <p>Розробник: Maksym Fomichov • Україна</p>
-      <p>Контактна пошта підтримки: <a href="mailto:fomichov.developer@gmail.com" class="text-brand-yellow hover:underline">fomichov.developer@gmail.com</a></p>
-      <div class="flex justify-center gap-4 text-xs pt-1">
-        <a href="/uk/mover-erp/privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
-        <span>•</span>
-        <a href="/uk/mover-erp/terms.html" class="hover:text-white transition">Умови використання</a>
-      </div>
-    </footer>
   </main>
 
-  <!-- Sticky Bottom CTA for Mobile -->
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 p-3 bg-brand-dark/95 backdrop-blur border-t border-brand-border z-50">
-    <a href="https://play.google.com/store/apps/details?id=com.fomichov.movererp" 
-       class="js-gp-link flex items-center justify-center gap-2.5 w-full bg-brand-yellow hover:bg-brand-yellowHover text-black font-extrabold text-base py-3.5 px-4 rounded-xl shadow-lg shadow-yellow-500/20 active:scale-98 transition">
-      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
-      Завантажити в Google Play
-    </a>
-  </div>
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">MoverERP • Продукт розробника Maksym Fomichov</p>
+        <p>Підтримка: <a href="mailto:fomichov.developer@gmail.com?subject=Питання%20щодо%20MoverERP" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
 
-  <!-- UTM Parameters Passthrough Script -->
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="terms.html" class="hover:text-white transition">Умови використання</a>
+        <span>•</span>
+        <a href="privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">Всі додатки автора →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const currentQuery = window.location.search;
@@ -223,7 +445,7 @@
           });
           link.href = targetUrl.toString();
         } catch (e) {
-          console.error("UTM passthrough error:", e);
+          console.error("UTM error:", e);
         }
       });
     });
