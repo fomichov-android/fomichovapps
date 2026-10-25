@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Порівняння цін &amp; Калькулятор вигоди — Захист від шринкфляції в супермаркеті</title>
+  <meta name="description" content="Зручний калькулятор чесної ціни біля полиці магазину: розрахунок вартості за 1 кг, 1 л або 1 шт. Викривайте шринкфляцію та маркетингові пастки за 5 секунд. 100% офлайн.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Порівняння цін &amp; Калькулятор вигоди">
+  <meta property="og:description" content="Чесна ціна за 1 кг чи 1 л. Дізнайтесь реальну економію біля полиці магазину без математики в голові.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Schema.org Microdata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Price Comparator & Calculator",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "ShoppingApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "UAH"
+    }
+  }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Всі додатки</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/price-comparator.png" alt="Price Comparator Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=PC'">
+          <span class="font-extrabold text-base tracking-tight text-white">Порівняння <span class="text-brand-amber">Цін</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Встановити з Google Play</span>
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <a href="../../price-comparator/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">UA</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Захист від шринкфляції та маркетингових пасток
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Чесна ціна за 1 кг чи 1 л. <br>
+          <span class="text-brand-amber">Порівнюйте вигоду за 5 секунд.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Пляшка 870 мл чи 1 літр? Пачка масла 180 г чи 200 г? Велика упаковка чи дві маленькі? Додаток миттєво приводить товари до єдиного знаменника, підсвічує реального лідера та рахує чисту економію у відсотках і гривнях.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Завантажити безкоштовно
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Як це працює ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Працює без інтернету</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Без реєстрації та реклами</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Миттєвий старт за 1 секунду</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img src="../../assets/price-comparator/screen-main-uk.png" 
+               alt="Головний екран Порівняння цін" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Головний екран калькулятора</div><p class=\'text-xs text-slate-400\'>Очікується скріншот:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/price-comparator/screen-main-uk.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BEFORE / AFTER / REAL LIFE PAIN -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Як маркетинг змушує переплачувати</h2>
+        <p class="text-sm text-slate-400">Виробники рідко підвищують ціну прямо — вони просто непомітно зменшують вагу чи об'єм упаковки.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Trap -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Маркетингові пастки біля полиці:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Оманлива вага:</strong> пачка молока 870 г за 38 грн здається дешевшою, ніж 1000 г за 41 грн, хоча за літр вона значно дорожча.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Уявна вигода опту:</strong> «Family pack» або акційні комплекти нерідко коштують дорожче за перерахунком на 1 шт, ніж звичайні пачки.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Складні розрахунки:</strong> ділити 147.60 на 730 грамів у стандартному калькуляторі довго, незручно і легко помилитися.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- App Solution -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-emerald-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-emerald font-bold text-base">
+            <span>✓</span> Що робить додаток:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Єдиний знаменник:</strong> миттєво переводить будь-які упаковки у точну ціну за 1 кг, 1 літр, 100 г або 1 штуку.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Наочний вердикт:</strong> вигідніший товар одразу підсвічується зеленим прапорцем з позначкою відсотка економії.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Введення за 5 секунд:</strong> великі кнопки, зручне перемикання «грами / мілілітри / штуки» без зайвих екранів.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Можливості та сценарії</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Точний розрахунок для будь-яких покупок</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚖️
+          </div>
+          <h3 class="text-base font-bold text-white">Універсальні одиниці виміру</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Легко порівнюйте кілограми з грамами, літри з мілілітрами або поштучні товари (рулони паперу, таблетки для прання, яйця).
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🏷️
+          </div>
+          <h3 class="text-base font-bold text-white">Калькулятор знижок та акцій</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Перевіряйте справжність жовтих цінників: введіть базову ціну та відсоток знижки (-15%, -30%), щоб побачити кінцеву вартість.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚡
+          </div>
+          <h3 class="text-base font-bold text-white">Порівняння 2 або більше позицій</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Не обмежуйтесь лише двома товарами. Додавайте третій і четвертий варіанти для порівняння різних брендів одного продукту.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">100% Офлайн у підвалах ТЦ</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Супермаркети часто розташовані в цокольних поверхах чи підземних паркінгах, де немає зв'язку. Додаток рахує локально без інтернету.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🧹
+          </div>
+          <h3 class="text-base font-bold text-white">Очищення в один дотик</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Зручна кнопка швидкого скидання полів дозволяє миттєво перейти до наступної полиці без довгого стирання символів клавіатурою.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Повна приватність</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Додаток не вимагає доступу до контактів, геолокації чи галереї. Жодного збору даних про ваші чеки чи фінансові звички.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Простий та зрозумілий біля каси</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Великі цифри, адаптована цифрова клавіатура та миттєва індикація вигоди.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/price-comparator/screen-compare-uk.png" 
+                 alt="Екран порівняння двох товарів" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-compare-uk.png<br><span class=\'text-[10px] text-slate-500\'>Порівняння двох упаковок</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Порівняння двох упаковок</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/price-comparator/screen-units-uk.png" 
+                 alt="Екран вибору одиниць виміру" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-units-uk.png<br><span class=\'text-[10px] text-slate-500\'>Одиниці виміру (кг/л/шт)</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Одиниці виміру (кг, л, шт)</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/price-comparator/screen-discount-uk.png" 
+                 alt="Екран розрахунку знижок" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-discount-uk.png<br><span class=\'text-[10px] text-slate-500\'>Калькулятор знижок</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Чесний підрахунок знижок</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Часті запитання</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чому не скористатися стандартним калькулятором телефону?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Звичайний калькулятор змушує вас пам'ятати проміжні результати або записувати їх на папері: спочатку розділити ціну на грами, помножити на 1000, зберегти, потім повторити для другого товару і вручну порахувати різницю у відсотках. У додатку ви просто вводите дві пари чисел («ціна» і «вага») — і результат видно одразу.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи потрібен мобільний інтернет у магазині?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Додаток не завантажує жодних баз даних з інтернету і працює на 100% автономно. Ви можете спокійно рахувати вигоду на підземних поверхах або в металевих ангарах оптових баз без мобільного зв'язку.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи можна порівнювати вагові товари з поштучними?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Порівняння має математичний сенс лише в однакових фізичних категоріях: вага з вагою (грами з кілограмами), об'єм з об'ємом (мілілітри з літрами) або кількість із кількістю (наприклад, упаковка на 10 штук проти упаковки на 24 штуки). Додаток автоматично конвертує вкладені величини однієї категорії.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Купуйте розумно без переплат</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Встановіть «Порівняння цін» та почніть економити на щоденних покупках вже під час наступного походу в магазин.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Завантажити з Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Порівняння цін &amp; Калькулятор • Продукт розробника Maksym Fomichov</p>
+        <p>Підтримка: <a href="mailto:fomichov.developer@gmail.com?subject=Питання%20щодо%20Порівняння%20Цін" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">Всі додатки автора →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
