@@ -45,13 +45,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://fomichov-android.github.io/fomichovapps/uk/get-it/</loc>
+<url>
+    <loc>https://fomichov-android.github.io/fomichovapps/uk/phrasal-verbs/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fomichov-android.github.io/fomichovapps/en/get-it/</loc>
+    <loc>https://fomichov-android.github.io/fomichovapps/en/phrasal-verbs/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
