@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Sheet — Простий трекер витрат та обліку бюджету без підписок</title>
+  <meta name="description" content="Швидкий та зручний облік щоденних витрат і доходів. Без нав'язаних платних підписок, без доступу до банківських рахунків, 100% офлайн і повна конфіденційність.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Expense Sheet: Трекер витрат і бюджету">
+  <meta property="og:description" content="Контроль щоденних фінансів за лічені секунди. Без доступу до банківських карток та прихованих платежів.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Schema.org Microdata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Expense Sheet: Budget Tracker",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "UAH"
+    }
+  }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Всі додатки</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/expense-sheet.png" alt="Expense Sheet Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=ES'">
+          <span class="font-extrabold text-base tracking-tight text-white">Expense <span class="text-brand-amber">Sheet</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.ExpenseSheet" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Встановити з Google Play</span>
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <a href="../../en/expense-sheet/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">UA</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Особисті фінанси без підписок та стеження
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Облік витрат за 5 секунд. <br>
+          <span class="text-brand-amber">Без банківських синхронізацій.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Більшість фінансових додатків перевантажені складними звітами або вимагають щомісячну платну підписку та доступ до карток. Expense Sheet повертає простоту: відкрили, за 5 секунд записали витрату, побачили залишок бюджету. 100% локально на вашому смартфоні.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.ExpenseSheet" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Завантажити безкоштовно
+            </a>
+            <a href="#why" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Чому саме Expense Sheet ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Працює без інтернету</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Жодного доступу до банків</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Без нав'язаних підписок</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img src="../../assets/expense-sheet/screen-main-uk.png" 
+               alt="Головний екран Expense Sheet" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Головний екран Expense Sheet</div><p class=\'text-xs text-slate-400\'>Очікується скріншот:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/expense-sheet/screen-main-uk.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BEFORE / AFTER / FINANCIAL DISCIPLINE -->
+    <section id="why" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Чому люди кидають вести домашню бухгалтерію</h2>
+        <p class="text-sm text-slate-400">Головна причина невдач у контролі фінансів — надмірна складність додатків та страх за безпеку своїх банківських рахунків.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Typical Complicated App -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Звичайні важкі програми:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Довге заповнення:</strong> щоб записати покупку кави, треба пройти 4 меню, вибрати субрахунок, теги та контрагента.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Примусова підписка:</strong> вимагають $5–10 щомісяця лише за базові графіки або експорт файлів.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Ризик витоку даних:</strong> вимагають логіни та паролі від онлайн-банкінгу, відправляючи виписки на чужі сервери.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Expense Sheet Way -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-emerald-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-emerald font-bold text-base">
+            <span>✓</span> Підхід Expense Sheet:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Запис за 5 секунд:</strong> ввели суму, торкнулися іконки категорії — запис миттєво збережено.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Чесна утиліта:</strong> базові функції повністю безкоштовні, жодних нав'язаних обов'язкових підписок.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Абсолютна приватність:</strong> додаток не має зв'язку з банками, а баланс знаєте лише ви.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Можливості додатку</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Все необхідне для щоденного спокою</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚡
+          </div>
+          <h3 class="text-base font-bold text-white">Блискавичне додавання</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Зручна цифрова клавіатура відкривається миттєво. Фіксація покупки займає мінімум рухів навіть на ходу біля каси.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">Зрозуміла візуальна аналітика</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Наочні діаграми показують реальну картину: скільки коштів іде на продукти, житло, авто або розваги протягом місяця чи дня.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🏷️
+          </div>
+          <h3 class="text-base font-bold text-white">Гнучкі власні категорії</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Створюйте та редагуйте категорії під свої особисті потреби: від щоденних покупок до конкретного ремонту чи подорожі.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">100% Автономна робота (Офлайн)</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Записуйте витрати без доступу до інтернету: у літаку, у роумінгу за кордоном чи на підземній парковці. База працює без збоїв.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            💾
+          </div>
+          <h3 class="text-base font-bold text-white">Резервна копія та експорт</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Повний контроль над вашими записами. Зберігайте резервну копію в локальний файл на смартфон або передавайте її при зміні пристрою.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Ніякого фінансового шпигунства</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Ваші суми витрат і баланс ніколи не передаються стороннім аналітичним трекерам або рекламним брокерам.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Лаконічний інтерфейс для швидких дій</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Темний комфортний дизайн, великі цифри та приємна колірна диференціація категорій.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/expense-sheet/screen-main-uk.png" 
+                 alt="Головний екран балансу та швидкого введення" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-main-uk.png<br><span class=\'text-[10px] text-slate-500\'>Баланс та стрічка витрат</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Баланс та стрічка витрат</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/expense-sheet/screen-analytics-uk.png" 
+                 alt="Екран аналітики та категорій" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-analytics-uk.png<br><span class=\'text-[10px] text-slate-500\'>Діаграми за категоріями</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Діаграми за категоріями</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/expense-sheet/screen-export-uk.png" 
+                 alt="Екран налаштувань та резервного копіювання" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-export-uk.png<br><span class=\'text-[10px] text-slate-500\'>Категорії та резервна копія</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Категорії та резервна копія</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Часті запитання</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чому додаток не синхронізується з банками автоматично?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Синхронізація з банками вимагає передачі логінів, паролів або банківських API третім особам, що створює ризик для безпеки коштів. Крім того, коли додаток рахує все автоматично, людина перестає усвідомлювати свої витрати. Ручний запис за 5 секунд формує фінансову дисципліну без будь-якої загрози вашим карткам.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи потрібен інтернет для роботи?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Ні. Expense Sheet створено за принципом Local-First. Уся історія покупок зберігається у локальній базі на вашому телефоні, тому ви можете вести облік у роумінгу, підвалах чи метро.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Як перенести свої фінансові записи на новий телефон?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            У налаштуваннях є функція створення резервної копії (Backup). Ви зберігаєте файл на смартфон або надсилаєте його собі в месенджер, а на новому телефоні натискаєте «Відновити з файлу».
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Візьміть щоденні витрати під контроль</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Встановіть Expense Sheet безкоштовно та почніть вести чесний бюджет без підписок уже сьогодні.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.apps.fomichov.m.ExpenseSheet" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Завантажити з Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Expense Sheet • Продукт розробника Maksym Fomichov</p>
+        <p>Підтримка: <a href="mailto:fomichov.developer@gmail.com?subject=Питання%20щодо%20Expense%20Sheet" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy.html" class="hover:text-white transition">Політика конфіденційності</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">Всі додатки автора →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
