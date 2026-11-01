@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linear Cutting: Оптимізація — Калькулятор лінійного розкрою профілю та труб</title>
-  <meta name="description" content="Професійний калькулятор 1D лінійного розкрою: мінімізація відходів, точний облік товщини пропилу (керф), робота з діловими залишками. 100% офлайн для майстерень і виробництв.">
+  <title>Linear Cutting: Оптимізація — Калькулятор лінійного розкрою профілю, труб і прокату</title>
+  <meta name="description" content="Професійний калькулятор 1D лінійного розкрою та складського обліку: 3 алгоритми оптимізації, різи під 45° і 90°, облік пропилу й торцювання, склад хлистів і ділових залишків, експорт у PDF та Excel.">
   <meta name="theme-color" content="#0a0f1d">
 
   <!-- Favicon -->
@@ -12,8 +12,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Linear Cutting: Оптимізація розкрою">
-  <meta property="og:description" content="Розумний розкрій профілю, труб, бруса та металопрокату без зайвих відходів. Точний алгоритм пакування заготовок.">
+  <meta property="og:title" content="Linear Cutting: Оптимізація розкрою та склад">
+  <meta property="og:description" content="Розумний 1D розкрій профілю, труб, арматури та бруса: стиковка кутів 45°, 3 алгоритми пакування, облік складу й ділових залишків, PDF-креслення та друк етикеток.">
   <meta property="og:image" content="../../assets/cover.jpg">
 
   <!-- Schema.org Microdata -->
@@ -107,7 +107,7 @@
       
       <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
-          Для віконних цехів, меблевиків, зварювальників і покрівельників
+          Для металоконструкцій, віконних цехів, зварювальників і меблевиків
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -116,7 +116,7 @@
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Розпил ПВХ та алюмінієвого профілю, круглих і профільних труб, дошки, арматури або кабель-каналів. Введіть розміри заготовок, вкажіть товщину різу пили (керф) — алгоритм побудує найекономнішу карту порізки за лічені секунди.
+          Професійний розкрій профільних і круглих труб, фасадного алюмінію, ПВХ-профілю, арматури та бруса. Задавайте кути різу 45° і 90°, товщину пропилу й торцювання краю, ведіть склад хлистів і ділових залишків та отримуйте готові карти порізки у PDF та Excel за секунди.
         </p>
 
         <!-- CTA & Features Pills -->
@@ -135,9 +135,9 @@
           </div>
 
           <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Працює без інтернету</span>
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Врахування товщини різу (керф)</span>
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Використання ділових залишків</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 3 алгоритми (Швидкий, Генетичний, Точний)</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Різи 45°/90°, пропил і торцювання</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Склад, ділові залишки та PDF/Excel</span>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
     <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-2">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Чому розкрій «на око» або на папері веде до збитків</h2>
-        <p class="text-sm text-slate-400">Вартість металу, ПВХ-профілю та якісної деревини постійно зростає. Кожен зайвий залишок менше метра — це заморожені або викинуті гроші.</p>
+        <p class="text-sm text-slate-400">Вартість металопрокату, алюмінієвого та ПВХ-профілю постійно зростає. Кожен неврахований різ під 45° або забутий на складі мірний обрізок — це прямі втрати на замовленні.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,15 +172,15 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Забутий різ диска:</strong> не врахували 3–4 мм товщини пильного диска — і остання деталь у палці виходить бракованою.</span>
+              <span><strong>Похибка на пропилі й торцюванні:</strong> не врахували 3–4 мм товщини диска та зачистку торця хлиста — і остання деталь виходить коротшою за креслення.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Купи непотрібних залишків:</strong> склад завалений шматками по 60–80 см, які вже нікуди не підходять, а нові палиці ріжуться знову.</span>
+              <span><strong>Перевитрата на кутах 45°:</strong> під час порізки профільної чи прямокутної труби під кутом без суміщення суміжних різів десятки сантиметрів металу йдуть у стружку.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Плутанина біля пили:</strong> пиляр на виробництві витрачає 20 хвилин на підбір комбінацій замість безперервної роботи.</span>
+              <span><strong>Захаращений склад і втрачені обрізки:</strong> ділові залишки по 80–200 см губляться в цеху, а під кожне нове замовлення знову списуються цілі 6-метрові хлисти.</span>
             </li>
           </ul>
         </div>
@@ -193,15 +193,15 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>Математичне пакування:</strong> алгоритм підбирає комбінації так, щоб сумарний залишок був мінімально можливим.</span>
+              <span><strong>3 алгоритми оптимізації з порівнянням:</strong> миттєвий Жадібний (FFD), еволюційний Генетичний та математично точний метод гілок і меж (Branch &amp; Bound).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>Чесний облік різу (Керф):</strong> товщина пропилу додається до кожного різу автоматично, усуваючи ризик браку.</span>
+              <span><strong>Інтелектуальна стиковка кутів 45°:</strong> враховує 4 типи профілів і орієнтацію прямокутної труби (плазом або на ребро), підказуючи де деталь потрібно повернути (🔄) чи перевернути (↔️).</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>Пуск залишків у діло:</strong> спочатку розкрій рахується на наявних обрізках зі складу, і лише потім — на нових хлистах.</span>
+              <span><strong>Повний цикл складського обліку:</strong> першочергово бере в роботу ділові залишки зі складу, автоматично списує витрачені хлисти, оприбутковує нові мірні обрізки та зберігає історію операцій.</span>
             </li>
           </ul>
         </div>
@@ -213,7 +213,7 @@
     <section class="space-y-10">
       <div class="border-b border-brand-border pb-4">
         <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Можливості для виробництва</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Інженерний інструмент прямо в цеху</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Інженерний інструмент та склад прямо в цеху</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -223,9 +223,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📐
           </div>
-          <h3 class="text-base font-bold text-white">Точна товщина пропилу (Керф)</h3>
+          <h3 class="text-base font-bold text-white">Різи 45°/90°, пропил і 4 типи профілів</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Вказуйте будь-яку товщину диска пили чи різака (наприклад, 2.5 мм, 3.2 мм чи 4 мм). Кожен різ розраховується з міліметровою точністю.
+            Точний облік товщини диска пили, торцювання краю хлиста та геометрії перерізу: круглий прокат, симетричний квадрат, несиметричний фасадний/віконний профіль і прямокутна труба (плазом чи на ребро).
           </p>
         </div>
 
@@ -234,9 +234,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📦
           </div>
-          <h3 class="text-base font-bold text-white">Склад ділових залишків</h3>
+          <h3 class="text-base font-bold text-white">Склад хлистів, залишків та транзакцій</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Додавайте вже наявні відрізки різної довжини. Програма спочатку пустить у роботу їх, зменшуючи захаращення цеху.
+            Контролюйте залишки матеріалів і мінімальний критичний запас, запускайте «Тестовий прогон» без змін на складі або списуйте партії з автоматичним збереженням нових ділових обрізків та можливістю повернення.
           </p>
         </div>
 
@@ -245,9 +245,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📊
           </div>
-          <h3 class="text-base font-bold text-white">Наочна карта порізки</h3>
+          <h3 class="text-base font-bold text-white">Карти порізки у PDF, Excel та етикетки</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Чітка візуальна схема для кожної вихідної палиці: послідовність різів, розміри деталей та підсвічування корисного залишку або сміття.
+            Наочна візуальна схема для кожного хлиста з кутами різу, розрахунком ваги й вартості замовлення. Генеруйте PDF-звіти для пиляра, експортуйте таблиці в Excel та друкуйте етикетки з QR-кодами на деталі й залишки.
           </p>
         </div>
 
@@ -256,9 +256,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             ⚡
           </div>
-          <h3 class="text-base font-bold text-white">Миттєвий розрахунок</h3>
+          <h3 class="text-base font-bold text-white">3 алгоритми та порівняння в 1 дотик</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Швидкий алгоритм оптимізації обробляє десятки деталей і довжин за частки секунди навіть на бюджетних смартфонах.
+            Порівнюйте на одному екрані Швидкий (Greedy FFD), Генетичний та Точний (Branch &amp; Bound) алгоритми за кількістю хлистів, відсотком відходів і часом прорахунку перед початком порізки.
           </p>
         </div>
 
@@ -267,9 +267,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📴
           </div>
-          <h3 class="text-base font-bold text-white">100% Автономна робота (Офлайн)</h3>
+          <h3 class="text-base font-bold text-white">100% Офлайн та імпорт з Excel</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Працює в металевих цехах, ангарах, гаражах та на виїзних монтажах без мобільного зв'язку чи Wi-Fi.
+            Працює в металевих цехах, ангарах і на монтажах без інтернету. Завантажуйте специфікації заготовок напряму з файлів Excel (.xlsx, .csv) та зберігайте резервні копії всієї бази у JSON.
           </p>
         </div>
 
@@ -278,9 +278,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             🔒
           </div>
-          <h3 class="text-base font-bold text-white">Повна конфіденційність</h3>
+          <h3 class="text-base font-bold text-white">Локальна база та 11 мов інтерфейсу</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Ніяких реєстрацій, обов'язкових акаунтів чи збору технологічних карт. Усі ваші специфікації залишаються лише у телефоні.
+            Жодних обов'язкових реєстрацій чи передачі комерційних креслень на сторонні сервери. Додаток підтримує 11 мов, темну й світлу індустріальні теми та захист від випадкового закриття під час роботи.
           </p>
         </div>
 
@@ -290,8 +290,8 @@
     <!-- SCREENSHOTS SHOWCASE -->
     <section class="space-y-6">
       <div class="text-center max-w-xl mx-auto space-y-2">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Інтерфейс, адаптований під роботу в рукавицях</h2>
-        <p class="text-xs sm:text-sm text-slate-400">Великі кнопки введення, контрастна колірна схема та читабельні цифри на відстані витягнутої руки.</p>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Інтерфейс, продуманий для цеху та виробництва</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Контрастна індустріальна тема, наочна графіка кутів різу та швидкий доступ до складу й партій розкрою.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
@@ -300,33 +300,33 @@
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-input-uk.png" 
-                 alt="Екран введення розмірів деталей" 
+                 alt="Екран параметрів партії, кутів 45° та вибору алгоритму" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-uk.png<br><span class=\'text-[10px] text-slate-500\'>Введення заготовок і довжин</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-uk.png<br><span class=\'text-[10px] text-slate-500\'>Параметри партії та кути 45°</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Введення заготовок і деталей</p>
+          <p class="text-xs font-semibold text-slate-300">Параметри партії, кути 45° та алгоритми</p>
         </div>
 
         <!-- Screen 2 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-layout-uk.png" 
-                 alt="Екран карти розкрою" 
+                 alt="Екран карти розкрою та експорту в PDF і Excel" 
                  class="w-full h-auto drop-shadow-xl select-none"
                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-layout-uk.png<br><span class=\'text-[10px] text-slate-500\'>Візуальна карта порізки</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Візуальна карта порізки</p>
+          <p class="text-xs font-semibold text-slate-300">Візуальна карта порізки та експорт у PDF/Excel</p>
         </div>
 
         <!-- Screen 3 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-stats-uk.png" 
-                 alt="Підсумок та залишки" 
+                 alt="Склад матеріалів, ділові залишки та історія операцій" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-uk.png<br><span class=\'text-[10px] text-slate-500\'>Звіт про відходи та залишки</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-uk.png<br><span class=\'text-[10px] text-slate-500\'>Склад та ділові залишки</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Звіт про залишки та відходи</p>
+          <p class="text-xs font-semibold text-slate-300">Склад хлистів, ділові залишки та історія</p>
         </div>
 
       </div>
@@ -339,23 +339,30 @@
       <div class="space-y-3 text-xs sm:text-sm">
         
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">Для яких матеріалів підходить Linear Cutting?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">Які типи профілів та різи під кутом підтримує Linear Cutting?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Для будь-яких погонних (лінійних) матеріалів: віконний ПВХ-профіль, алюмінієві системи, сталеві круглі та профільні труби, арматура, дерев'яний брус, дошка, кабельні лотки, плінтус та карнизи.
+            Додаток підтримує 4 типи геометрії: круглий прокат (арматура, кругла труба), симетричний профіль (квадратна труба), несиметричний профіль (віконний ПВХ, фасадний алюміній, кутник) і прямокутну трубу з вибором орієнтації різу (плазом або на ребро). Для кожної деталі можна задати кути по краях 90° або 45°, а алгоритм автоматично зістикує суміжні різи та покаже підказки повороту (🔄) або перевороту (↔️).
           </p>
         </div>
 
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">Чому важливо вказувати товщину різу (керф)?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">Як працює складський облік, «Тестовий прогон» та списання залишків?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Пильний диск або абразивний круг перетворює 2.5–4 мм матеріалу на стружку під час кожного розпилу. Якщо зробити 10 різів на 6-метровій палці без урахування керфу, сумарна похибка сягне 30–40 мм, і кінцева деталь не вийде в потрібний розмір. Linear Cutting компенсує це автоматично.
+            Ви можете розрахувати замовлення у 3 режимах: «Тільки цілі хлисти», «Залишки + Хлисти» або «Тільки ділові залишки». Режим «Тестовий прогон» дозволяє швидко оцінити потребу в матеріалі без змін на складі. При натисканні «Списати зі складу» програма автоматично спише використані хлисти й обрізки, додасть нові ділові залишки (довші за вказаний мінімум) назад на склад і запише операцію в журнал із можливістю скасування (повернення партії).
           </p>
         </div>
 
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">Чи потрібен інтернет для оптимізації розкрою?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">Чим відрізняються 3 алгоритми оптимізації та як враховується пропил?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Ні. Додаток розроблено для автономної роботи в цехах і на об'єктах. Усі математичні алгоритми виконуються локально на процесорі вашого смартфона.
+            До кожної лінії розрізу автоматично додається товщина диска пили, а на початку хлиста враховується торцювання краю. Для укладання заготовок доступні 3 алгоритми: Швидкий (Greedy FFD) для миттєвої оцінки, Генетичний для складних комбінацій різних довжин та Точний (Branch &amp; Bound у PRO-версії) для пошуку математичного мінімуму відходів. Кнопка «Порівняти алгоритми» наочно покаже різницю до початку роботи.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Чи можна імпортувати деталі з Excel і роздрукувати карту порізки для цеху?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Так. Ви можете завантажити відомість заготовок із файлу Excel (.xlsx або .csv), а готову карту порізки зберегти у вигляді PDF-креслення зі схемами хлистів, вагою та кошторисом, вивантажити у таблицю Excel або згенерувати PDF-аркуш термо-етикеток (цінників із QR-кодами) для маркування нарізаних деталей і залишків. Усі функції працюють на 100% офлайн.
           </p>
         </div>
 
@@ -364,9 +371,9 @@
 
     <!-- BOTTOM CTA BANNER -->
     <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Припиніть викидати гроші в обрізки</h2>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Наведіть ідеальний порядок у розкрої та на складі</h2>
       <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-        Встановіть Linear Cutting безкоштовно та почніть економити матеріал вже на найближчому замовленні.
+        Встановіть Linear Cutting безкоштовно та почніть економити метал, профіль і час пиляра вже на найближчому замовленні.
       </p>
       <div>
         <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
