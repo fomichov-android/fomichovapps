@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Loto: Smart Generator — Statistics &amp; Strategies for 6/52</title>
+  <meta name="description" content="Smart combination generator for 6/52 lotto. Database of 2,000+ past draws, 4 analytical strategies, number heatmap, and match checker. 100% offline.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Super Loto: Smart Generator">
+  <meta property="og:description" content="Historical analysis of 2,000+ draws, 4 smart strategies, and detailed ball stats for 6/52 lotto.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Schema.org Microdata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Super Loto: Smart Generator",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">All Apps</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/super-loto.png" alt="Super Loto Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=SL'">
+          <span class="font-extrabold text-base tracking-tight text-white">Super Loto <span class="text-brand-amber">Generator</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Install from Google Play</span>
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">EN</span>
+          <a href="../../uk/super-loto/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">UA</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Analytical Assistant for 6/52 Players
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Historical analysis instead of blind luck. <br>
+          <span class="text-brand-amber">Smart combinations &amp; draw statistics.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Stop relying on random quick picks from the terminal. Use a database of over 2,000 past draws, generate combinations across 4 analytical strategies (Hot, Cold, Balanced, Overdue), and explore detailed statistics for each number.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Download for Free
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              How it works ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 2,000+ Offline draws database</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 4 Analytical strategies</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> No sign-up or accounts</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img src="../../assets/super-loto/screen-main-en.png" 
+               alt="Super Loto Generator Main Screen" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Generator Main Screen</div><p class=\'text-xs text-slate-400\'>Screenshot placeholder:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/super-loto/screen-main-en.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- DISCLAIMER BOX (Mandatory & Honest) -->
+    <section class="rounded-xl bg-brand-card border border-amber-500/40 p-4 sm:p-5 flex items-start gap-4">
+      <div class="text-brand-amber text-xl shrink-0 pt-0.5">⚠️</div>
+      <div class="space-y-1 text-xs text-slate-300 leading-relaxed">
+        <strong class="text-white block text-sm">Important Notice for Users:</strong>
+        <p>This app is an independent informational and statistical tool and is not an official product of UNL (Ukrainian National Lottery). The app <strong>does not accept real money wagers, does not sell lottery tickets, and does not pay out winnings</strong>. No algorithm in the world can guarantee a lottery win, as every draw is an independent random event. The purpose of this application is to provide transparent draw history and mathematical modeling tools for mindful play. Please play responsibly.</p>
+      </div>
+    </section>
+
+    <!-- LOGIC COMPARISON -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Why "Smart Generator" Beats Random Terminal Quick Picks</h2>
+        <p class="text-sm text-slate-400">When buying a random quick pick from a retail terminal, you receive a completely blind set of numbers without any historical draw context.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Dumb Random -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Blind Terminal Quick Pick:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Total blindness:</strong> the machine spits out numbers without considering which balls hit frequently or have gone cold.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Zero strategy:</strong> you cannot tailor combinations based on trends — emphasizing active numbers or overdue balls.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>No match validation:</strong> you have no idea how those numbers performed historically or if they ever produced past wins.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Smart Generator -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-amber-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-amber font-bold text-base">
+            <span>✓</span> Smart Analytical Approach:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>2,000+ draw archive:</strong> generation relies on a full database of official draws with optional one-tap online updates.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>4 built-in strategies:</strong> build combinations from frequent balls (Hot), rare ones (Cold), 3+3 Balance, or Overdue numbers.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-amber font-bold shrink-0">•</span>
+              <span><strong>Depth &amp; match verification:</strong> analyze intervals of 50, 100 draws or all-time history and instantly verify past matches.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Features</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tools to Build Your Personal Play Strategy</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔥
+          </div>
+          <h3 class="text-base font-bold text-white">4 Generation Strategies</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Pick a method that fits your style: &ldquo;Hottest&rdquo; (frequent balls), &ldquo;Coldest&rdquo; (rare), &ldquo;Balanced&rdquo; (3 hot + 3 cold), or &ldquo;Overdue&rdquo; for numbers that have not appeared recently.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🎯
+          </div>
+          <h3 class="text-base font-bold text-white">Ticket Match Checker</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Manually enter your 6 favorite numbers to immediately see how many matches (2, 3, 4, 5, or 6 balls) they produced across all past official draws.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">In-Depth Stats &amp; Filters</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Interactive 52-ball heatmap, frequency progress bars, and top-10 leaders. Filter data across depths (50, 100, all-time), drums (A/B), and ball sets (1–4).
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📝
+          </div>
+          <h3 class="text-base font-bold text-white">Saved Tickets with Notes</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Save generated combinations to device storage, attach notes (e.g., &ldquo;Saturday draw&rdquo;), and manage your tickets prior to buying at retail outlets.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">Offline 2,000+ Draw Database</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Full draw history, statistical computations, and generation run 100% locally on your device without cellular connection. Fresh draws update online in one click.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🎨
+          </div>
+          <h3 class="text-base font-bold text-white">Modern Material 3 &amp; Privacy</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Fluid ball physics animations, dark/light themes, and 4 visual styles (Classic, Neon, Wealth, Joy). Zero registrations, phone number requirements, or personal tracking.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Clean UI Built for Rapid Generation</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Smooth spring animations, clear filter bars, and responsive touch controls.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-generator-en.png" 
+                 alt="Generator and strategy selection screen" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-generator-en.png<br><span class=\'text-[10px] text-slate-500\'>Combination Generator</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Generator &amp; Strategy Controls</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-stats-en.png" 
+                 alt="Ball statistics and heatmap screen" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Draw statistics</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Heatmap &amp; Top 10 Balls</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/super-loto/screen-saved-en.png" 
+                 alt="Saved tickets with custom notes" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-saved-en.png<br><span class=\'text-[10px] text-slate-500\'>Saved tickets</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Saved Tickets with Notes</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Frequently Asked Questions</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Does this app guarantee a lottery win?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No. No program can predict winning numbers because each lottery draw is a random event. Super Loto Generator is designed as an analytical tool that presents true historical draw frequencies, helping you pick combinations using mathematical models rather than blind guesswork.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Can I buy lottery tickets inside the app?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No. This app is not a gambling venue, does not sell tickets, and does not operate lotteries. You analyze and generate numbers inside the app, then transfer them to an official lottery slip at authorized retail terminals or on the official UNL website.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Do the generator and statistics require an internet connection?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No. Generation algorithms, statistical computations, heatmaps, and match verification run 100% offline using the built-in local database of 2,000+ past draws. Internet connectivity is only needed when downloading newly released draws or syncing Google Play purchases.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Try a Smarter Approach to the Game</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Download Super Loto Generator for free from Google Play and analyze your numbers right now.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Download from Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Super Loto Generator • Built by Maksym Fomichov</p>
+        <p>Support: <a href="mailto:fomichov.developer@gmail.com?subject=Question%20about%20Super%20Loto%20Generator" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">All Apps →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
