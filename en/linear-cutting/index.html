@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linear Cutting: Optimization — 1D Stock Cut Optimizer for Profiles, Pipes &amp; Timber</title>
-  <meta name="description" content="Professional 1D linear cut list optimizer: minimize scrap waste, factor in saw blade kerf, and reuse offcut stock. 100% offline for workshops, fabricators, and metalworkers.">
+  <title>Linear Cutting: Optimization — 1D Cut List Optimizer &amp; Warehouse Inventory</title>
+  <meta name="description" content="Professional 1D linear cutting optimizer and stock manager: 3 optimization algorithms (Greedy, Genetic, Exact Branch &amp; Bound), 45°/90° miter cuts, blade kerf &amp; edge trim, offcut inventory, and PDF/Excel export.">
   <meta name="theme-color" content="#0a0f1d">
 
   <!-- Favicon -->
@@ -12,8 +12,8 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Linear Cutting: Optimization">
-  <meta property="og:description" content="Smart cut list optimization for pipes, window profiles, lumber, and rebar. Cut down on scrap waste.">
+  <meta property="og:title" content="Linear Cutting: 1D Cut Optimizer &amp; Stock Manager">
+  <meta property="og:description" content="Smart 1D cutting optimization for tubes, window profiles, extrusions, rebar, and timber: 45° miter nesting, 3 packing engines, warehouse &amp; remnant tracking, PDF diagrams, and QR labels.">
   <meta property="og:image" content="../../assets/cover.jpg">
 
   <!-- Schema.org Microdata -->
@@ -107,7 +107,7 @@
       
       <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
-          For Fabricators, Carpenters, Welders &amp; Window Makers
+          For Metal Fabricators, Window Makers, Welders &amp; Carpenters
         </div>
 
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -116,7 +116,7 @@
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Cutting aluminum or PVC profiles, round and square tubing, timber, rebar, or conduit? Enter required part lengths, set saw blade cut thickness (kerf), and let the algorithm generate the most efficient 1D cutting layout in seconds.
+          Professional 1D cutting optimization for square and rectangular tubing, aluminum &amp; PVC extrusions, round pipes, rebar, and timber. Configure 45° and 90° miter angles, blade kerf, and bar edge trim, manage warehouse bars and usable remnants, and export shop-ready PDF cutting diagrams and Excel sheets in seconds.
         </p>
 
         <!-- CTA & Features Pills -->
@@ -135,9 +135,9 @@
           </div>
 
           <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Works offline</span>
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Saw blade kerf compensation</span>
-            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Offcut inventory reuse</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 3 engines (Fast, Genetic, Exact B&amp;B)</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 45°/90° miters, kerf &amp; edge trim</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Warehouse stock, remnants &amp; PDF/Excel</span>
           </div>
         </div>
 
@@ -159,7 +159,7 @@
     <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-2">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Why Guesswork Cutting Leads to Costly Losses</h2>
-        <p class="text-sm text-slate-400">The costs of steel, PVC extrusions, and timber keep rising. Every offcut piece under 1 meter represents frozen cash or scrap disposal fees.</p>
+        <p class="text-sm text-slate-400">Prices for steel tubing, aluminum extrusions, and PVC profiles keep rising. Every uncompensated 45° miter cut or forgotten warehouse offcut directly erodes your profit margin.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -172,15 +172,15 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Ignored saw kerf:</strong> forgetting 3–4 mm blade cut width turns the final workpiece on a stock bar into unusable scrap.</span>
+              <span><strong>Ignored kerf &amp; end trim:</strong> forgetting 3–4 mm blade thickness and initial bar end squaring makes the final workpiece on a bar undersized.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Piles of dead offcuts:</strong> the shop floor is cluttered with 60–80 cm remnants while new full-length stock continues to be cut.</span>
+              <span><strong>Wasted length on 45° miters:</strong> cutting square, rectangular, or asymmetric profiles at 45° without interlocking adjacent cuts wastes tens of centimeters per bar.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-red-400 font-bold shrink-0">•</span>
-              <span><strong>Slow manual math:</strong> machine operators spend 20 minutes with paper and pen guessing part combinations instead of cutting.</span>
+              <span><strong>Unchecked stock &amp; dead remnants:</strong> usable 80–200 cm offcuts pile up in corners while operators keep pulling fresh 6-meter bars from the rack.</span>
             </li>
           </ul>
         </div>
@@ -193,15 +193,15 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>1D Bin Packing:</strong> mathematical nesting packs parts tightly, keeping leftover scrap to the absolute minimum.</span>
+              <span><strong>3 Optimization Engines with side-by-side comparison:</strong> choose between instant Greedy (FFD), evolutionary Genetic, and mathematically exact Branch &amp; Bound.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>Automated kerf compensation:</strong> cut width is automatically factored into each division line, eliminating dimensional errors.</span>
+              <span><strong>Smart 45° miter nesting &amp; 4 profile types:</strong> accounts for round, symmetric, asymmetric, and rectangular profiles (flat or on-edge) with automatic rotate (🔄) and flip (↔️) operator cues.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-brand-emerald font-bold shrink-0">•</span>
-              <span><strong>Remnant-first nesting:</strong> offcut pieces in your inventory are utilized first before opening fresh full-length stock bars.</span>
+              <span><strong>Closed-loop warehouse control:</strong> prioritizes existing remnants first, deducts committed bars from inventory, returns newly created usable offcuts to stock, and logs every transaction.</span>
             </li>
           </ul>
         </div>
@@ -213,7 +213,7 @@
     <section class="space-y-10">
       <div class="border-b border-brand-border pb-4">
         <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Fabrication Features</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">An Engineering Tool Right on the Shop Floor</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">An Engineering Optimizer &amp; Inventory System on the Shop Floor</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -223,9 +223,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📐
           </div>
-          <h3 class="text-base font-bold text-white">Precise Saw Kerf Setting</h3>
+          <h3 class="text-base font-bold text-white">45°/90° Miters, Kerf &amp; 4 Profile Types</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Configure any saw blade or abrasive wheel thickness (e.g., 2.5 mm, 3.2 mm, or 1/8"). Every division line is calculated with millimeter accuracy.
+            Factor in saw blade kerf, initial bar edge trim, and profile cross-section geometry: round stock, symmetric square tube, asymmetric window/facade extrusion, and rectangular tubing (cut flat or on-edge).
           </p>
         </div>
 
@@ -234,9 +234,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📦
           </div>
-          <h3 class="text-base font-bold text-white">Offcut &amp; Remnant Inventory</h3>
+          <h3 class="text-base font-bold text-white">Warehouse Stock, Offcuts &amp; History</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Include already existing pieces of varying lengths. The optimizer prioritizes these offcuts first, decluttering your workshop.
+            Track full bars and usable remnants with low-stock alerts. Run non-destructive "Test Runs" for quotes, or commit orders to automatically deduct stock, save new offcuts, and roll back orders whenever needed.
           </p>
         </div>
 
@@ -245,9 +245,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📊
           </div>
-          <h3 class="text-base font-bold text-white">Visual Cutting Layout</h3>
+          <h3 class="text-base font-bold text-white">PDF Cutting Maps, Excel &amp; QR Labels</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            A clear visual cutting layout for each raw stock bar: cutting sequence, part sizes, and distinct indicators for usable offcuts vs. scrap.
+            Visual cutting diagrams for every stock bar with angle geometry, total weight, and material cost. Export shop-ready PDF reports, Excel spreadsheets, and printable thermal labels with QR codes for parts and remnants.
           </p>
         </div>
 
@@ -256,9 +256,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             ⚡
           </div>
-          <h3 class="text-base font-bold text-white">Instant Optimization</h3>
+          <h3 class="text-base font-bold text-white">3 Engines &amp; One-Tap Comparison</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Fast optimization algorithms process dozens of parts, stock lengths, and quantities in fractions of a second, even on budget devices.
+            Compare Fast (Greedy FFD), Genetic, and Exact (Branch &amp; Bound) algorithms side by side on the order screen to see required stock bars, waste percentage, and calculation time before making a single cut.
           </p>
         </div>
 
@@ -267,9 +267,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             📴
           </div>
-          <h3 class="text-base font-bold text-white">100% Offline Capability</h3>
+          <h3 class="text-base font-bold text-white">100% Offline &amp; Excel Cut List Import</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Operates smoothly inside metal workshops, aircraft hangars, garages, and on job sites without internet access or cellular signal.
+            Operates reliably inside metal workshops, hangars, and job sites without internet connectivity. Import part specifications directly from Excel (.xlsx, .csv) and back up your entire database to JSON.
           </p>
         </div>
 
@@ -278,9 +278,9 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             🔒
           </div>
-          <h3 class="text-base font-bold text-white">Strict Data Privacy</h3>
+          <h3 class="text-base font-bold text-white">Local Data Privacy &amp; 11 Languages</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            No mandatory accounts, sign-ups, or remote tracking of cutting lists. All project specifications remain strictly on your smartphone.
+            No mandatory accounts or cloud uploads: your warehouse database, pricing, and cutting specifications stay strictly on your device. Localized in 11 languages with high-contrast dark and light industrial themes.
           </p>
         </div>
 
@@ -291,7 +291,7 @@
     <section class="space-y-6">
       <div class="text-center max-w-xl mx-auto space-y-2">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Workshop-Ready Interface</h2>
-        <p class="text-xs sm:text-sm text-slate-400">Large touch targets, high-contrast dark theme, and readable numbers at arm's length.</p>
+        <p class="text-xs sm:text-sm text-slate-400">High-contrast industrial theme, clear visual miter indicators, and instant switching between warehouse stock and cutting batches.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
@@ -300,33 +300,33 @@
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-input-en.png" 
-                 alt="Part dimensions input screen" 
+                 alt="Order parameters, 45-degree miter angles, and algorithm selection screen" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-en.png<br><span class=\'text-[10px] text-slate-500\'>Parts and stock input</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-en.png<br><span class=\'text-[10px] text-slate-500\'>Order setup &amp; 45° angles</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Parts and Stock Lengths</p>
+          <p class="text-xs font-semibold text-slate-300">Order Setup, 45° Angles &amp; Algorithms</p>
         </div>
 
         <!-- Screen 2 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-layout-en.png" 
-                 alt="Cutting pattern layout screen" 
+                 alt="Visual cutting pattern layout and PDF/Excel export screen" 
                  class="w-full h-auto drop-shadow-xl select-none"
                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-layout-en.png<br><span class=\'text-[10px] text-slate-500\'>Visual cut layout</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Visual Cutting Diagram</p>
+          <p class="text-xs font-semibold text-slate-300">Visual Cutting Map &amp; PDF/Excel Export</p>
         </div>
 
         <!-- Screen 3 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
             <img src="../../assets/linear-cutting/screen-stats-en.png" 
-                 alt="Summary and scrap reports" 
+                 alt="Warehouse inventory, usable remnants, and stock transaction log" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Scrap &amp; offcut summary</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Warehouse &amp; remnants</span></div>'">
           </div>
-          <p class="text-xs font-semibold text-slate-300">Scrap &amp; Offcut Summary</p>
+          <p class="text-xs font-semibold text-slate-300">Warehouse Stock, Offcuts &amp; History</p>
         </div>
 
       </div>
@@ -339,23 +339,30 @@
       <div class="space-y-3 text-xs sm:text-sm">
         
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">What materials does Linear Cutting handle?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">What profile types and angle cuts does Linear Cutting support?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Any 1D linear raw stock: PVC window extrusions, aluminum framing, steel tubing, rebar, dimensional lumber, cable trays, and pipes.
+            The app supports 4 profile geometries: Round stock (rebar, round pipe), Symmetric profiles (square tubing), Asymmetric profiles (PVC window extrusions, aluminum facade profiles, steel angles), and Rectangular tubing with selectable cut orientation (laid flat or standing on edge). Each part can have 90° or 45° left/right cuts, and the optimizer automatically nests matching 45° miters with visual rotate (🔄) and flip (↔️) cues.
           </p>
         </div>
 
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">Why is blade kerf compensation critical?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">How do warehouse tracking, "Test Run" mode, and remnant reuse work?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Every cut removes 2.5–4 mm (or 1/8") of material as sawdust or metal shavings. Over 10 cuts on a single stock bar, that accumulates to 30–40 mm of lost length, causing your final part to be undersized. Linear Cutting compensates for kerf on every cut automatically.
+            You can optimize orders in 3 stock modes: "Whole Bars Only", "Offcuts + Whole Bars", or "Offcuts Only". Running a "Test Run" lets you estimate material requirements without modifying warehouse balances. When you tap "Deduct from Stock", the app automatically deducts the used bars and remnants, adds newly created usable offcuts (above your minimum remnant threshold) back into inventory, and logs the transaction with full one-tap rollback support.
           </p>
         </div>
 
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
-          <h3 class="font-bold text-white text-sm sm:text-base">Does this app require network connectivity?</h3>
+          <h3 class="font-bold text-white text-sm sm:text-base">What is the difference between the 3 optimization algorithms, and how is kerf handled?</h3>
           <p class="text-slate-300 leading-relaxed">
-            No. The app is engineered for standalone workshop use. All optimization algorithms execute locally on your smartphone processor.
+            Saw blade kerf thickness is automatically added to every cut, and optional bar edge trim is deducted from the start of each bar. You can choose from 3 engines: Fast (Greedy FFD) for instant layouts, Genetic for complex multi-length batches, and Exact (Branch &amp; Bound in PRO) for guaranteed minimum waste. The built-in "Compare Algorithms" dialog lets you evaluate all three before cutting.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Can I import cut lists from Excel and print cutting diagrams or QR labels?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Yes. You can import part lists directly from Excel (.xlsx or .csv) files, export finished cutting layouts as detailed PDF reports (including bar diagrams, weight, and cost breakdown) or Excel workbooks, and generate printable PDF sheets of thermal labels with QR codes for cut parts and warehouse remnants — all 100% offline.
           </p>
         </div>
 
@@ -364,9 +371,9 @@
 
     <!-- BOTTOM CTA BANNER -->
     <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Stop Throwing Money into the Scrap Bin</h2>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Bring Precision to Your Cutting List &amp; Warehouse</h2>
       <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-        Install Linear Cutting for free and start saving valuable materials on your very next production run.
+        Install Linear Cutting for free and start saving metal, extrusions, and shop floor time on your very next production batch.
       </p>
       <div>
         <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
