@@ -1,0 +1,21 @@
+{
+  "name": "Maksym Fomichov — Android Developer Portfolio",
+  "short_name": "FomichovApps",
+  "description": "Precision calculators and 100% offline Android utilities by engineer & developer Maksym Fomichov.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "./assets/icons/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/icons/movererp.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

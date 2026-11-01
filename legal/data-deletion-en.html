@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Data Deletion Policy &amp; Instructions — Maksym Fomichov Apps</title>
+  <meta name="description" content="Official instructions for deleting local and cloud user data across Android applications by Maksym Fomichov, in compliance with Google Play Data Safety requirements.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#111827">
+
+  <link rel="canonical" href="https://fomichovapps.com/legal/data-deletion-en.html">
+  <link rel="alternate" hreflang="en" href="https://fomichovapps.com/legal/data-deletion-en.html">
+  <link rel="alternate" hreflang="uk" href="https://fomichovapps.com/legal/data-deletion.html">
+  <link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/legal/data-deletion-en.html">
+  <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: { dark: '#111827', card: '#182235', border: '#26344d', amber: '#eab308', blue: '#38bdf8' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/comfort-theme.css">
+  <script src="../assets/js/site-core.js"></script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="../en/" class="flex items-center gap-2.5 font-bold text-sm text-white">
+        <span class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-xs text-brand-blue">MF</span>
+        <span>Maksym Fomichov • Data Deletion</span>
+      </a>
+      <div class="flex items-center gap-2.5">
+        <a href="../en/" class="text-xs text-slate-400 hover:text-white transition hidden sm:inline">← All Apps</a>
+        <button type="button" class="theme-toggle-btn js-theme-toggle" aria-label="Toggle theme"></button>
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card">
+          <span class="px-2.5 py-1 bg-brand-amber text-black">EN</span>
+          <a href="data-deletion.html" class="px-2.5 py-1 text-slate-400 hover:text-white transition">UA</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-6 text-sm sm:text-base leading-relaxed flex-grow w-full">
+    <div class="border-b border-brand-border pb-4">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-white">User Account &amp; Data Deletion Policy</h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">In compliance with Google Play Data Safety Policy • Last Updated: November 1, 2026</p>
+    </div>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">1. Offline Applications with Local On-Device Storage</h2>
+      <p class="text-slate-300">
+        The following applications operate autonomously and store all user records, calculations, and settings <strong>exclusively in your device's local internal memory</strong>:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 text-slate-300 text-xs sm:text-sm">
+        <li><strong>MoverERP: Moving &amp; Freight</strong> (<code>com.apps.fomichov.m.movererp</code>)</li>
+        <li><strong>Linear Cutting: Optimization</strong> (<code>com.gmail.fomichov.m.linearcutting</code>)</li>
+        <li><strong>Margin Pro: Profit Calculator</strong> (<code>com.defun.checkmargins</code>)</li>
+        <li><strong>Expense Sheet: Budget Tracker</strong> (<code>com.apps.fomichov.m.ExpenseSheet</code>)</li>
+        <li><strong>Price Comparator &amp; Calculator</strong> (<code>com.gmail.fomichov.m.compareprice</code>)</li>
+        <li><strong>Super Loto: Smart Generator</strong> (<code>com.gmail.fomichov.m.superlotogenerator</code>)</li>
+      </ul>
+      <p class="text-slate-300">
+        Because the developer does not collect or store these records on external servers, you can <strong>instantly and permanently erase all local data</strong> at any time:
+      </p>
+      <ol class="list-decimal pl-5 space-y-1 text-slate-300 text-xs sm:text-sm">
+        <li>Open Android <strong>Settings → Apps</strong>.</li>
+        <li>Select the corresponding application.</li>
+        <li>Tap <strong>Storage &amp; cache → Clear storage (Delete data)</strong>, or simply uninstall the application from your device.</li>
+      </ol>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">2. Cloud-Synced Application (Get It! Phrasal Verbs)</h2>
+      <p class="text-slate-300">
+        In <strong>Get It! Phrasal Verbs</strong> (<code>com.apps.fomichov.m.phrasalverbs</code>), optional cloud synchronization (Firebase Authentication &amp; Cloud Firestore) is used to sync learned vocabulary, XP, and daily streaks across devices.
+      </p>
+      <p class="text-slate-300">
+        You can permanently delete your cloud account and all associated learning data using either method below:
+      </p>
+      <div class="bg-brand-card border border-brand-border p-5 rounded-xl space-y-3">
+        <p class="font-bold text-white text-sm">Method 1: Instant Deletion Inside the App</p>
+        <p class="text-xs sm:text-sm text-slate-300">Open Get It! → go to <strong>Settings → Account → Delete Account &amp; Data</strong>. All cloud and local records are permanently erased immediately.</p>
+        
+        <p class="font-bold text-white text-sm pt-3 border-t border-brand-border">Method 2: Email Deletion Request (Without Opening the App)</p>
+        <p class="text-xs sm:text-sm text-slate-300">
+          Send an email with the subject line <code>Data Deletion Request: Get It!</code> to 
+          <a href="mailto:fomichov.developer@gmail.com?subject=Data%20Deletion%20Request%3A%20Get%20It!" class="text-brand-amber font-mono hover:underline">fomichov.developer@gmail.com</a> 
+          including your User ID (UID) or the Google account email used to sign in. All associated records will be permanently purged from Firebase servers within 7 business days.
+        </p>
+      </div>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-lg font-bold text-white">3. Advertising Identifiers (AdMob / AppLovin)</h2>
+      <p class="text-slate-300">
+        You can reset or delete your device's Google Advertising ID at any time by navigating to <em>Android Settings → Google → Ads → Reset / Delete advertising ID</em>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="py-6 border-t border-brand-border text-center text-xs text-slate-400">
+    <p>© 2026 Maksym Fomichov. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

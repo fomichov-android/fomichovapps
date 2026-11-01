@@ -1,0 +1,53 @@
+# Maksym Fomichov — Android Developer & Engineering Utilities Portfolio
+
+> Official website and documentation hub for 7 offline-first Android applications engineered by Maksym Fomichov (Google Play Developer ID: 5082361350201276993, Ukraine). All applications focus on mathematical precision, fast field operation, 100% offline reliability (Local-First SQLite architecture), and user data privacy.
+
+- Developer Name: Maksym Fomichov (Максим Фомічов)
+- Contact & Support: mailto:fomichov.developer@gmail.com
+- Google Play Store Developer Page: https://play.google.com/store/apps/dev?id=5082361350201276993
+- Main Hub (English): https://fomichovapps.com/en/
+- Main Hub (Ukrainian): https://fomichovapps.com/uk/
+- Detailed AI Knowledge Base: https://fomichovapps.com/llms-full.txt
+
+## Flagship Application
+
+- [MoverERP: Moving & Freight Cost Estimator](https://fomichovapps.com/en/mover-erp/): Offline job calculator, timer, receipt generator, and crew/cash register CRM for van drivers, movers, and dispatchers. Calculates hourly vehicle rates, stairs, long carry distance, heavy cargo (>80 kg), client breakdowns for WhatsApp/Viber/Telegram, helper splits, and net profit in 30 seconds. Zero ads; 20 full-featured orders free.
+  - Ukrainian Version: [MoverERP: Переїзди та вантажі](https://fomichovapps.com/uk/mover-erp/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.apps.fomichov.m.movererp
+
+## Manufacturing, Retail & Finance Calculators
+
+- [Linear Cutting: 1D Cut List Optimizer & Warehouse](https://fomichovapps.com/en/linear-cutting/): Professional 1D linear bar cutting optimizer and warehouse stock manager for metal fabricators, window makers, welders, and carpenters. Features 3 packing algorithms (Fast Greedy FFD, Genetic, Exact Branch & Bound), 45° and 90° miter nesting across 4 profile geometries, saw blade kerf, bar edge trim, usable offcut/remnant inventory, Excel (.xlsx/.csv) import, and PDF cutting maps + QR thermal label export.
+  - Ukrainian Version: [Лінійний Розкрій: Оптимізація](https://fomichovapps.com/uk/linear-cutting/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting
+
+- [Margin Pro: Margin, Markup & Break-Even Calculator](https://fomichovapps.com/en/margin-pro/): Commercial profitability calculator for retail and wholesale merchants. Prevents losses caused by confusing margin with markup, builds step-by-step discount matrices (1% or 5% increments), plots an interactive break-even zero-profit chart, accounts for VAT/sales taxes, and stores deal history offline with JSON backup.
+  - Ukrainian Version: [Margin Pro: Розрахунок Маржі](https://fomichovapps.com/uk/margin-pro/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.defun.checkmargins
+
+- [Expense Sheet: Offline Daily Expense & Budget Tracker](https://fomichovapps.com/en/expense-sheet/): Minimalist 5-second personal finance tracker with a built-in numpad calculator, multi-currency accounts, period-over-period category analytics, CSV export, and offline SQLite backup. Requires zero bank account linking and zero monthly subscriptions.
+  - Ukrainian Version: [Expense Sheet: Облік витрат](https://fomichovapps.com/uk/expense-sheet/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.apps.fomichov.m.ExpenseSheet
+
+- [Price Comparator & Unit Price Calculator](https://fomichovapps.com/en/price-comparator/): Anti-shrinkflation grocery shopping calculator that converts odd weights and volumes (e.g., 870 ml vs 1 L, 180 g vs 200 g) into true unit price per 1 kg, 1 liter, or 1 piece across up to 5 competing products, highlights the best deal in green, and saves editable store price history offline.
+  - Ukrainian Version: [Порівняння цін і Калькулятор вигоди](https://fomichovapps.com/uk/price-comparator/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice
+
+## Education & Statistical Reference Utilities
+
+- [Get It! Phrasal Verbs — English Trainer (A1–C2)](https://fomichovapps.com/en/phrasal-verbs/): Gamified card-matching English trainer covering 470 phrasal verbs from CEFR A1 to C2 across 3 modes (Meaning, TTS Audio listening, and sentence Context), with smart FOCUS mistake-recovery rounds, XP ranks, daily streaks, 10 UI languages, and optional Firebase cloud sync.
+  - Ukrainian Version: [Get It! Фразові дієслова](https://fomichovapps.com/uk/phrasal-verbs/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.apps.fomichov.m.phrasalverbs
+
+- [Super Loto: Smart Generator & 6/52 Statistics](https://fomichovapps.com/en/super-loto/): Independent statistical analysis utility for 6/52 lottery players featuring a built-in offline archive of 2,600+ draws, 4 selection strategies (Hottest, Coldest, Balance 3+3, Overdue), ball frequency heatmaps, manual ticket historical match checking, and saved ticket notes.
+  - Ukrainian Version: [Супер Лото: Розумний Генератор](https://fomichovapps.com/uk/super-loto/)
+  - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.superlotogenerator
+
+## Official Legal & Data Safety Documentation
+
+- [Unified Privacy Policy (English)](https://fomichovapps.com/legal/privacy-policy-en.html)
+- [Єдина Політика конфіденційності (Українська)](https://fomichovapps.com/legal/privacy-policy.html)
+- [Terms of Service (English)](https://fomichovapps.com/legal/terms-en.html)
+- [Умови використання (Українська)](https://fomichovapps.com/legal/terms.html)
+- [User Data Deletion Policy (English)](https://fomichovapps.com/legal/data-deletion-en.html)
+- [Політика видалення даних (Українська)](https://fomichovapps.com/legal/data-deletion.html)

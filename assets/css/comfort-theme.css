@@ -1,0 +1,259 @@
+/* ==========================================================================
+   FomichovApps Eye-Comfort & Mobile UX Design System (Late 2026)
+   Softens OLED halation/glare in Dark Mode + provides a 1-tap Soft Light Mode
+   ========================================================================== */
+
+:root {
+  --bg-primary: #111827;       /* Warm Slate-900 instead of harsh pitch #0a0f1d */
+  --bg-elevated: #182235;      /* Soft elevated card surface */
+  --bg-card-hover: #1e2b42;
+  --bg-subtle: #0e1523;
+  --border-color: #26344d;     /* Softened border */
+  --border-highlight: #384b6b;
+  --text-heading: #f1f5f9;     /* Warm off-white (Slate-100) to prevent eye burn */
+  --text-body: #cbd5e1;        /* Comfortable reading contrast (Slate-300) */
+  --text-muted: #94a3b8;       /* Slate-400 */
+  --accent-amber: #eab308;     /* Softer warm gold instead of harsh neon orange */
+  --accent-amber-hover: #ca8a04;
+  --accent-amber-text: #0f172a;
+  --accent-blue: #38bdf8;
+  --accent-emerald: #10b981;
+  --header-bg: rgba(17, 24, 39, 0.88);
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.28), 0 4px 10px -2px rgba(0, 0, 0, 0.15);
+}
+
+html.theme-light {
+  --bg-primary: #f8fafc;       /* Warm alabaster paper */
+  --bg-elevated: #ffffff;      /* Crisp white card */
+  --bg-card-hover: #f1f5f9;
+  --bg-subtle: #f1f5f9;
+  --border-color: #cbd5e1;
+  --border-highlight: #94a3b8;
+  --text-heading: #0f172a;     /* Deep slate ink */
+  --text-body: #334155;        /* Comfortable charcoal body */
+  --text-muted: #475569;
+  --accent-amber: #d97706;     /* Rich readable amber */
+  --accent-amber-hover: #b45309;
+  --accent-amber-text: #ffffff;
+  --accent-blue: #0284c7;
+  --accent-emerald: #059669;
+  --header-bg: rgba(248, 250, 252, 0.90);
+  --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+html {
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-body) !important;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -15%, rgba(56, 189, 248, 0.07), transparent),
+                    radial-gradient(ellipse 60% 40% at 85% 10%, rgba(234, 179, 8, 0.05), transparent);
+  background-attachment: fixed;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+/* Soften pure white headings in dark mode & invert cleanly in light mode */
+body .text-white {
+  color: var(--text-heading) !important;
+}
+body .text-slate-100,
+body .text-slate-200,
+body .text-slate-300 {
+  color: var(--text-body) !important;
+}
+body .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+
+/* Surfaces & Cards */
+body .bg-brand-dark,
+body .bg-\[\#0a0f1d\],
+body .bg-\[\#060a12\] {
+  background-color: var(--bg-subtle) !important;
+}
+
+body header.bg-\[\#0a0f1d\],
+body header.bg-brand-dark {
+  background-color: var(--header-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body .bg-brand-card,
+body .bg-\[\#0f172a\] {
+  background-color: var(--bg-elevated) !important;
+  box-shadow: var(--shadow-card);
+}
+
+body .border-brand-border,
+body .border-slate-800,
+body .border-slate-700 {
+  border-color: var(--border-color) !important;
+}
+
+/* Soften harsh gradients */
+body .from-\[\#131d31\] {
+  --tw-gradient-from: var(--bg-elevated) !important;
+}
+
+/* Soften primary amber buttons so they don't burn eyes on OLED */
+body .bg-brand-amber {
+  background-color: var(--accent-amber) !important;
+  color: var(--accent-amber-text) !important;
+  box-shadow: 0 4px 14px rgba(234, 179, 8, 0.22);
+}
+body .bg-brand-amber:hover {
+  background-color: var(--accent-amber-hover) !important;
+}
+body .text-brand-amber {
+  color: var(--accent-amber) !important;
+}
+body .text-brand-blue {
+  color: var(--accent-blue) !important;
+}
+body .text-brand-emerald,
+body .text-emerald-400 {
+  color: var(--accent-emerald) !important;
+}
+
+/* Light mode adjustments for specific dark-only utility classes */
+html.theme-light .bg-slate-800,
+html.theme-light .bg-\[\#1e293b\],
+html.theme-light .bg-brand-border {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+html.theme-light .bg-slate-800:hover,
+html.theme-light .bg-\[\#1e293b\]:hover {
+  background-color: #cbd5e1 !important;
+}
+html.theme-light .bg-emerald-950\/60,
+html.theme-light .bg-emerald-950\/40 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(5, 150, 105, 0.35) !important;
+}
+html.theme-light .border-red-900\/40 {
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  background-color: #fff5f5 !important;
+}
+html.theme-light .text-red-400 {
+  color: #dc2626 !important;
+}
+html.theme-light .text-purple-400 {
+  color: #7e22ce !important;
+}
+html.theme-light .text-yellow-400 {
+  color: #b45309 !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-elevated);
+  color: var(--text-heading);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--accent-amber);
+  transform: translateY(-1px);
+}
+
+/* Mobile Screenshot Carousel (Swipeable on <640px, Grid on >=640px) */
+@media (max-width: 639px) {
+  .mobile-screenshot-carousel {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 1rem !important;
+    padding-bottom: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  .mobile-screenshot-carousel > div {
+    flex: 0 0 78% !important;
+    max-width: 270px !important;
+    scroll-snap-align: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 0.75rem;
+  }
+  /* Add padding at bottom of body when sticky mobile CTA bar is present */
+  body.has-mobile-cta {
+    padding-bottom: 4.75rem !important;
+  }
+}
+
+/* Sticky Mobile Bottom CTA Bar for App Landing Pages */
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-color);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.25);
+}
+@media (min-width: 640px) {
+  .mobile-sticky-cta {
+    display: none !important;
+  }
+}
+
+/* Comparison Table Scroll & Styling */
+.comparison-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-elevated);
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.8125rem;
+}
+.comparison-table th,
+.comparison-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.comparison-table th {
+  font-weight: 700;
+  color: var(--text-heading);
+  background-color: var(--bg-subtle);
+  white-space: nowrap;
+}
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+.comparison-table tr:hover td {
+  background-color: var(--bg-card-hover);
+}

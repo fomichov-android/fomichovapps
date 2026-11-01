@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=./uk/">
-  <title>Maksym Fomichov — Android Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maksym Fomichov — Android Developer | Official App Portfolio &amp; Calculators</title>
+  <meta name="description" content="Official portfolio of offline-first Android utilities and precision calculators by engineer &amp; developer Maksym Fomichov: MoverERP, Linear Cutting, Margin Pro, Expense Sheet, Price Comparator, Get It! Phrasal Verbs, Super Loto Generator.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#111827">
+  <meta name="author" content="Maksym Fomichov">
+
+  <link rel="canonical" href="https://fomichovapps.com/en/">
+  <link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/">
+  <link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/">
+  <link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maksym Fomichov Apps">
+  <meta property="og:title" content="Maksym Fomichov — Android Developer | Offline Business &amp; Engineering Apps">
+  <meta property="og:description" content="Precision calculators and offline-first Android utilities for logistics, manufacturing, retail margins, personal finance, smart shopping, and English learning.">
+  <meta property="og:url" content="https://fomichovapps.com/">
+  <meta property="og:image" content="https://fomichovapps.com/assets/cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maksym Fomichov — Android Developer Portfolio">
+  <meta name="twitter:description" content="Precision calculators and 100% offline Android utilities for work, business, and everyday life.">
+  <meta name="twitter:image" content="https://fomichovapps.com/assets/cover.jpg">
+
+  <link rel="stylesheet" href="./assets/css/comfort-theme.css">
+  <script src="./assets/js/site-core.js"></script>
   <script>
-    // Миттєвий редирект на українську версію
-    window.location.replace("./uk/" + window.location.search);
+    (function () {
+      try {
+        var search = window.location.search || "";
+        var saved = localStorage.getItem("fomichov_lang");
+        if (saved === "uk" || saved === "en") {
+          window.location.replace("./" + saved + "/" + search);
+          return;
+        }
+        var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || "en"];
+        var preferUk = langs.some(function (l) {
+          var code = String(l).toLowerCase();
+          return code.indexOf("uk") === 0 || code.indexOf("ua") === 0 || code.indexOf("ru") === 0;
+        });
+        window.location.replace((preferUk ? "./uk/" : "./en/") + search);
+      } catch (e) {}
+    })();
   </script>
 </head>
-<body style="background-color: #0a0f1d; color: #94a3b8; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-  <p>Завантаження вітрини додатків... <a href="./uk/" style="color: #f59e0b;">Натисніть тут, якщо перехід не відбувся автоматично</a>.</p>
+<body style="background-color: #111827; color: #cbd5e1; font-family: system-ui, -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 1.5rem;">
+  <main style="max-width: 32rem; width: 100%; background: #182235; border: 1px solid #26344d; border-radius: 1rem; padding: 2rem; text-align: center;">
+    <h1 style="color: #f1f5f9; font-size: 1.35rem; margin-top: 0; margin-bottom: 0.5rem;">Maksym Fomichov — Android Apps</h1>
+    <p style="font-size: 0.92rem; color: #94a3b8; margin-bottom: 1.5rem;">Select your preferred language / Оберіть мову інтерфейсу:</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="./en/" style="background: #eab308; color: #0f172a; font-weight: 800; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-size: 0.95rem;">English Version (EN) →</a>
+      <a href="./uk/" style="background: #26344d; color: #f1f5f9; font-weight: 700; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 0.75rem; font-size: 0.95rem;">Українська версія (UA) →</a>
+    </div>
+  </main>
 </body>
 </html>
