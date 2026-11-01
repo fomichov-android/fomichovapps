@@ -9,7 +9,7 @@
  */
 window.FOMICHOV_CONFIG = {
   siteUrl: "https://fomichovapps.com",
-  ga4MeasurementId: "",         // Пример: "G-1234567890" (оставьте пустым, пока не создадите счётчик в Google Analytics)
+  ga4MeasurementId: "G-JJ6DF5LLTM",         // Пример: "G-1234567890" (оставьте пустым, пока не создадите счётчик в Google Analytics)
   clarityProjectId: "",         // Пример: "abcde12345" (Microsoft Clarity — по желанию)
   developerEmail: "fomichov.developer@gmail.com",
   developerId: "5082361350201276993"
