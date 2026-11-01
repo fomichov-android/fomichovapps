@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Cutting: Optimization — 1D Stock Cut Optimizer for Profiles, Pipes &amp; Timber</title>
+  <meta name="description" content="Professional 1D linear cut list optimizer: minimize scrap waste, factor in saw blade kerf, and reuse offcut stock. 100% offline for workshops, fabricators, and metalworkers.">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Linear Cutting: Optimization">
+  <meta property="og:description" content="Smart cut list optimization for pipes, window profiles, lumber, and rebar. Cut down on scrap waste.">
+  <meta property="og:image" content="../../assets/cover.jpg">
+
+  <!-- Schema.org Microdata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Linear Cutting: Optimization",
+    "operatingSystem": "ANDROID",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0a0f1d',
+              card: '#0f172a',
+              cardHover: '#131e36',
+              border: '#1e293b',
+              amber: '#f59e0b',
+              amberHover: '#d97706',
+              blue: '#38bdf8',
+              emerald: '#10b981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">All Apps</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img src="../../assets/icons/linear-cutting.png" alt="Linear Cutting Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=LC'">
+          <span class="font-extrabold text-base tracking-tight text-white">Linear <span class="text-brand-amber">Cutting</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Install from Google Play</span>
+        </a>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">EN</span>
+          <a href="../../uk/linear-cutting/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">UA</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          For Fabricators, Carpenters, Welders &amp; Window Makers
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Minimize scrap waste — <br>
+          <span class="text-brand-amber">maximize material yield.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Cutting aluminum or PVC profiles, round and square tubing, timber, rebar, or conduit? Enter required part lengths, set saw blade cut thickness (kerf), and let the algorithm generate the most efficient 1D cutting layout in seconds.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Download for Free
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              How optimization works ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> 100% Works offline</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Saw blade kerf compensation</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Offcut inventory reuse</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img src="../../assets/linear-cutting/screen-main-en.png" 
+               alt="Linear Cutting Main Screen" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Linear Cutting Main Screen</div><p class=\'text-xs text-slate-400\'>Screenshot placeholder:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/linear-cutting/screen-main-en.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BEFORE / AFTER / WORKSHOP REALITY -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Why Guesswork Cutting Leads to Costly Losses</h2>
+        <p class="text-sm text-slate-400">The costs of steel, PVC extrusions, and timber keep rising. Every offcut piece under 1 meter represents frozen cash or scrap disposal fees.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Trap -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Cutting without algorithm optimization:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Ignored saw kerf:</strong> forgetting 3–4 mm blade cut width turns the final workpiece on a stock bar into unusable scrap.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Piles of dead offcuts:</strong> the shop floor is cluttered with 60–80 cm remnants while new full-length stock continues to be cut.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Slow manual math:</strong> machine operators spend 20 minutes with paper and pen guessing part combinations instead of cutting.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Linear Cutting Solution -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-emerald-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-emerald font-bold text-base">
+            <span>✓</span> The Linear Cutting approach:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>1D Bin Packing:</strong> mathematical nesting packs parts tightly, keeping leftover scrap to the absolute minimum.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Automated kerf compensation:</strong> cut width is automatically factored into each division line, eliminating dimensional errors.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Remnant-first nesting:</strong> offcut pieces in your inventory are utilized first before opening fresh full-length stock bars.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Fabrication Features</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">An Engineering Tool Right on the Shop Floor</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📐
+          </div>
+          <h3 class="text-base font-bold text-white">Precise Saw Kerf Setting</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Configure any saw blade or abrasive wheel thickness (e.g., 2.5 mm, 3.2 mm, or 1/8"). Every division line is calculated with millimeter accuracy.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📦
+          </div>
+          <h3 class="text-base font-bold text-white">Offcut &amp; Remnant Inventory</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Include already existing pieces of varying lengths. The optimizer prioritizes these offcuts first, decluttering your workshop.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">Visual Cutting Layout</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            A clear visual cutting layout for each raw stock bar: cutting sequence, part sizes, and distinct indicators for usable offcuts vs. scrap.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚡
+          </div>
+          <h3 class="text-base font-bold text-white">Instant Optimization</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Fast optimization algorithms process dozens of parts, stock lengths, and quantities in fractions of a second, even on budget devices.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">100% Offline Capability</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Operates smoothly inside metal workshops, aircraft hangars, garages, and on job sites without internet access or cellular signal.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Strict Data Privacy</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            No mandatory accounts, sign-ups, or remote tracking of cutting lists. All project specifications remain strictly on your smartphone.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Workshop-Ready Interface</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Large touch targets, high-contrast dark theme, and readable numbers at arm's length.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/linear-cutting/screen-input-en.png" 
+                 alt="Part dimensions input screen" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-en.png<br><span class=\'text-[10px] text-slate-500\'>Parts and stock input</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Parts and Stock Lengths</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/linear-cutting/screen-layout-en.png" 
+                 alt="Cutting pattern layout screen" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-layout-en.png<br><span class=\'text-[10px] text-slate-500\'>Visual cut layout</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Visual Cutting Diagram</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img src="../../assets/linear-cutting/screen-stats-en.png" 
+                 alt="Summary and scrap reports" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Scrap &amp; offcut summary</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Scrap &amp; Offcut Summary</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Frequently Asked Questions</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">What materials does Linear Cutting handle?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Any 1D linear raw stock: PVC window extrusions, aluminum framing, steel tubing, rebar, dimensional lumber, cable trays, and pipes.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Why is blade kerf compensation critical?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Every cut removes 2.5–4 mm (or 1/8") of material as sawdust or metal shavings. Over 10 cuts on a single stock bar, that accumulates to 30–40 mm of lost length, causing your final part to be undersized. Linear Cutting compensates for kerf on every cut automatically.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">Does this app require network connectivity?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No. The app is engineered for standalone workshop use. All optimization algorithms execute locally on your smartphone processor.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Stop Throwing Money into the Scrap Bin</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Install Linear Cutting for free and start saving valuable materials on your very next production run.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Download from Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Linear Cutting • Built by Maksym Fomichov</p>
+        <p>Support: <a href="mailto:fomichov.developer@gmail.com?subject=Question%20about%20Linear%20Cutting" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <span>•</span>
+        <a href="../" class="hover:text-brand-blue transition">All Apps →</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- UTM Passthrough Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentQuery = window.location.search;
+      if (!currentQuery) return;
+
+      const pageParams = new URLSearchParams(currentQuery);
+      const playLinks = document.querySelectorAll('.js-gp-link');
+
+      playLinks.forEach(function (link) {
+        try {
+          const targetUrl = new URL(link.href);
+          pageParams.forEach(function (value, key) {
+            targetUrl.searchParams.set(key, value);
+          });
+          link.href = targetUrl.toString();
+        } catch (e) {
+          console.error("UTM error:", e);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
