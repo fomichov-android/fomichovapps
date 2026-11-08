@@ -254,36 +254,13 @@
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              dark: '#111827',
-              card: '#182235',
-              cardHover: '#1e2b42',
-              border: '#26344d',
-              borderLight: '#384b6b',
-              blue: '#38bdf8',
-              amber: '#eab308',
-              amberHover: '#ca8a04',
-              green: '#10b981'
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="stylesheet" href="../assets/css/comfort-theme.css">
   <script src="../assets/js/site-core.js"></script>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
 </head>
 <body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
 
@@ -354,7 +331,7 @@
       <div class="flex flex-col lg:flex-row gap-6 lg:items-center justify-between">
         
         <div class="flex flex-col sm:flex-row gap-5 items-start">
-          <img src="../assets/icons/movererp.png" alt="MoverERP: Переїзди та вантажі іконка" width="512" height="512" fetchpriority="high"
+          <img src="../assets/icons/movererp.webp" alt="MoverERP: Переїзди та вантажі іконка" width="512" height="512" fetchpriority="high"
                class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border border-slate-700 bg-slate-900 object-cover shrink-0">
           
           <div class="space-y-2">
@@ -401,7 +378,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/linear-cutting.png" alt="Лінійний Розкрій: Оптимізація іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/linear-cutting.webp" alt="Лінійний Розкрій: Оптимізація іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-brand-blue tracking-wider uppercase block">Виробництво &amp; Майстерня</span>
@@ -429,7 +406,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/margin-pro.png" alt="Margin Pro: Розрахунок Маржі іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/margin-pro.webp" alt="Margin Pro: Розрахунок Маржі іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-brand-amber tracking-wider uppercase block">Торгівля &amp; Бізнес</span>
@@ -457,7 +434,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/expense-sheet.png" alt="Expense Sheet: Облік витрат іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/expense-sheet.webp" alt="Expense Sheet: Облік витрат іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-emerald-400 tracking-wider uppercase block">Особисті Фінанси</span>
@@ -485,7 +462,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/price-comparator.png" alt="Порівняння цін і Калькулятор іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/price-comparator.webp" alt="Порівняння цін і Калькулятор іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-brand-blue tracking-wider uppercase block">Розумний Шопінг</span>
@@ -513,7 +490,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/phrasal-verbs.png" alt="Get It! Фразові дієслова іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/phrasal-verbs.webp" alt="Get It! Фразові дієслова іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-purple-400 tracking-wider uppercase block">Вивчення Мов</span>
@@ -541,7 +518,7 @@
         <article class="bg-brand-card border border-brand-border rounded-xl p-5 flex flex-col justify-between hover:border-slate-700 transition">
           <div class="space-y-3">
             <div class="flex items-start gap-3.5">
-              <img src="../assets/icons/super-loto.png" alt="Супер Лото: Розумний Генератор іконка" width="512" height="512" loading="lazy"
+              <img src="../assets/icons/super-loto.webp" alt="Супер Лото: Розумний Генератор іконка" width="512" height="512" loading="lazy"
                    class="w-14 h-14 rounded-xl border border-slate-700 bg-slate-900 object-cover shrink-0">
               <div>
                 <span class="text-[10px] font-bold text-yellow-400 tracking-wider uppercase block">Аналітика &amp; Статистика</span>

@@ -153,36 +153,13 @@
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              dark: '#111827',
-              card: '#182235',
-              cardHover: '#1e2b42',
-              border: '#26344d',
-              borderLight: '#384b6b',
-              amber: '#eab308',
-              amberHover: '#ca8a04',
-              blue: '#38bdf8',
-              emerald: '#10b981'
-            }
-          }
-        }
-      }
-    }
-  </script>
   <link rel="stylesheet" href="../../assets/css/comfort-theme.css">
   <script src="../../assets/js/site-core.js"></script>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
 </head>
 <body class="has-mobile-cta bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
 
@@ -196,7 +173,7 @@
         </a>
         <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
         <a href="./" class="flex items-center gap-2.5">
-          <img width="512" height="512" src="../../assets/icons/phrasal-verbs.png" alt="Get It! Logo" 
+          <img width="512" height="512" src="../../assets/icons/phrasal-verbs.webp" alt="Get It! Logo" 
                class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
                onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=GI'">
           <span class="font-extrabold text-base tracking-tight text-white">Get It! <span class="text-brand-amber">Verbs</span></span>
@@ -270,7 +247,7 @@
       <!-- Hero Phone Screenshot Container -->
       <div class="lg:col-span-5 flex justify-center">
         <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
-          <img width="1410" height="2968" fetchpriority="high" decoding="async" src="../../assets/phrasal-verbs/screen-main-en.png" 
+          <img width="1410" height="2968" fetchpriority="high" decoding="async" src="../../assets/phrasal-verbs/screen-main-en.webp" 
                alt="Get It! Main App Screen" 
                class="w-full h-auto drop-shadow-2xl select-none"
                onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Get It! Main Screen</div><p class=\'text-xs text-slate-400\'>Screenshot placeholder:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/phrasal-verbs/screen-main-en.png</code></p></div>'">
@@ -423,7 +400,7 @@
         <!-- Screen 1 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
-            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-cards-en.png" 
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-cards-en.webp" 
                  alt="Phrasal verb dictionary and examples screen" 
                  class="w-full h-auto drop-shadow-xl select-none"
                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-cards-en.png<br><span class=\'text-[10px] text-slate-500\'>Dictionary &amp; examples</span></div>'">
@@ -434,7 +411,7 @@
         <!-- Screen 2 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
-            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-quiz-en.png" 
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-quiz-en.webp" 
                  alt="Interactive card matching round" 
                  class="w-full h-auto drop-shadow-xl select-none"
                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-quiz-en.png<br><span class=\'text-[10px] text-slate-500\'>Card matching round</span></div>'">
@@ -445,7 +422,7 @@
         <!-- Screen 3 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
-            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-stats-en.png" 
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/phrasal-verbs/screen-stats-en.webp" 
                  alt="Progress and daily streak screen" 
                  class="w-full h-auto drop-shadow-xl select-none"
                  onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Progress &amp; Streak</span></div>'">
@@ -526,7 +503,7 @@
   <!-- Sticky Mobile Bottom CTA Bar (Visible on phones <640px) -->
   <div class="mobile-sticky-cta" role="region" aria-label="Quick install bar">
     <div class="flex items-center gap-2.5 min-w-0">
-      <img src="../../assets/icons/phrasal-verbs.png" alt="Get It! Verbs" width="40" height="40" class="w-9 h-9 rounded-lg border border-slate-700 bg-slate-900 object-cover shrink-0">
+      <img src="../../assets/icons/phrasal-verbs.webp" alt="Get It! Verbs" width="40" height="40" class="w-9 h-9 rounded-lg border border-slate-700 bg-slate-900 object-cover shrink-0">
       <div class="truncate">
         <div class="font-bold text-xs text-white truncate">Get It! Verbs</div>
         <div class="text-[10px] text-slate-400 truncate">470 Verbs • Audio & Context</div>
