@@ -11,7 +11,7 @@
 
 ## Flagship Application
 
-- [MoverERP: Moving & Freight Cost Estimator](https://fomichovapps.com/en/mover-erp/): Offline job calculator, timer, receipt generator, and crew/cash register CRM for van drivers, movers, and dispatchers. Calculates hourly vehicle rates, stairs, long carry distance, heavy cargo (>80 kg), client breakdowns for WhatsApp/Viber/Telegram, helper splits, and net profit in 30 seconds. Zero ads; 20 full-featured orders free.
+- [MoverERP: Moving & Freight Cost Estimator](https://fomichovapps.com/en/mover-erp/): Offline job calculator, timer, client cost breakdown, and crew/cash register CRM for van drivers, movers, and dispatchers. Calculates hourly vehicle rates, stairs, long carry distance, heavy cargo (>80 kg), client breakdowns for WhatsApp/Viber/Telegram, helper splits, and net profit in 30 seconds. Zero ads; 20 full-featured orders free.
   - Ukrainian Version: [MoverERP: Переїзди та вантажі](https://fomichovapps.com/uk/mover-erp/)
   - Google Play: https://play.google.com/store/apps/details?id=com.apps.fomichov.m.movererp
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoverERP — Estimating & Job Pricing App for Movers and Moving Companies</title>
-  <meta name="description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client receipt and profit tracking. 100% offline, 20 jobs free.">
+  <meta name="description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client cost breakdown and profit tracking. 100% offline, 20 jobs free.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#111827">
   <meta name="author" content="Maksym Fomichov">
@@ -26,7 +26,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="uk_UA">
   <meta property="og:title" content="MoverERP — Estimating &amp; Job Pricing App for Movers and Moving Companies">
-  <meta property="og:description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client receipt and profit tracking. 100% offline, 20 jobs free.">
+  <meta property="og:description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client cost breakdown and profit tracking. 100% offline, 20 jobs free.">
   <meta property="og:url" content="https://fomichovapps.com/en/mover-erp/">
   <meta property="og:image" content="https://fomichovapps.com/assets/cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MoverERP — Estimating &amp; Job Pricing App for Movers and Moving Companies">
-  <meta name="twitter:description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client receipt and profit tracking. 100% offline, 20 jobs free.">
+  <meta name="twitter:description" content="Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client cost breakdown and profit tracking. 100% offline, 20 jobs free.">
   <meta name="twitter:image" content="https://fomichovapps.com/assets/cover.jpg">
 
   <!-- Schema.org JSON-LD (@graph: SoftwareApplication, BreadcrumbList, FAQPage, Person) -->
@@ -89,10 +89,10 @@
       "screenshot": [
         "https://fomichovapps.com/assets/movererp/screen-main-en.png",
         "https://fomichovapps.com/assets/movererp/screen-loaders-en.png",
-        "https://fomichovapps.com/assets/movererp/screen-receipt-en.png",
+        "https://fomichovapps.com/assets/movererp/screen-breakdown-en.png",
         "https://fomichovapps.com/assets/movererp/screen-finance-en.png"
       ],
-      "description": "Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client receipt and profit tracking. 100% offline, 20 jobs free.",
+      "description": "Moving estimate app for movers, van owners and small moving companies. Price a moving job in 30 seconds: hourly timer, stairs, long carry, mileage, client cost breakdown and profit tracking. 100% offline, 20 jobs free.",
       "featureList": [
         "Timer & Flexible Vehicle Rates",
         "Stairs, Long Carry & Heavy Cargo",
@@ -141,7 +141,7 @@
           "name": "Can customers see my internal expenses or crew payouts?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Never. The client receipt is generated separately: it only displays the truck rate, worked hours, stairs, mileage, and final amount. Your cash registers, profits, and dispatcher percentages remain strictly confidential on your phone."
+            "text": "Never. The client breakdown is generated separately: it only displays the truck rate, worked hours, stairs, mileage, and final amount. Your cash registers, profits, and dispatcher percentages remain strictly confidential on your phone."
           }
         },
         {
@@ -310,7 +310,7 @@
           <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
             <li class="flex items-start gap-2">
               <span class="text-brand-amber font-bold shrink-0">•</span>
-              <span><strong>Bulletproof transparency:</strong> send itemized receipts to clients as text or image in a single tap.</span>
+              <span><strong>Bulletproof transparency:</strong> send itemized cost breakdowns to clients as text or image in a single tap.</span>
             </li>
             <li class="flex items-start gap-2">
               <span class="text-brand-amber font-bold shrink-0">•</span>
@@ -429,10 +429,10 @@
         <!-- Screen 2 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
-            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/movererp/screen-receipt-en.webp" 
-                 alt="Client receipt generation screen" 
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/movererp/screen-breakdown-en.webp" 
+                 alt="Client cost breakdown screen" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-receipt-en.png<br><span class=\'text-[10px] text-slate-500\'>Client Receipt</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-breakdown-en.png<br><span class=\'text-[10px] text-slate-500\'>Client Breakdown</span></div>'">
           </div>
           <p class="text-xs font-semibold text-slate-300">One-Tap Client Breakdown</p>
         </div>
@@ -468,7 +468,7 @@
           <div class="space-y-2">
             <span class="text-xs font-bold text-slate-400 uppercase">Starter Pack</span>
             <div class="text-2xl font-black text-white">20 Orders</div>
-            <p class="text-xs text-slate-300">Full access to all calculators, timer, client management, and sharing receipts via messaging apps.</p>
+            <p class="text-xs text-slate-300">Full access to all calculators, timer, client management, and sharing cost breakdowns via messaging apps.</p>
           </div>
           <div class="text-xs font-bold text-brand-emerald bg-emerald-950/40 border border-emerald-800/40 px-3 py-2 rounded-lg text-center">
             $0 • Free Forever
@@ -524,7 +524,7 @@
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
           <h3 class="font-bold text-white text-sm sm:text-base">Can customers see my internal expenses or crew payouts?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Never. The client receipt is generated separately: it only displays the truck rate, worked hours, stairs, mileage, and final amount. Your cash registers, profits, and dispatcher percentages remain strictly confidential on your phone.
+            Never. The client breakdown is generated separately: it only displays the truck rate, worked hours, stairs, mileage, and final amount. Your cash registers, profits, and dispatcher percentages remain strictly confidential on your phone.
           </p>
         </div>
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoverERP — Розрахунок переїздів та вантажів для водіїв і вантажників</title>
-  <meta name="description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, чек у Viber та облік заробітку. 100% офлайн.">
+  <meta name="description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, деталізація вартості у Viber та облік заробітку. 100% офлайн.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#111827">
   <meta name="author" content="Maksym Fomichov">
@@ -26,7 +26,7 @@
   <meta property="og:locale" content="uk_UA">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="MoverERP — Розрахунок переїздів та вантажів для водіїв і вантажників">
-  <meta property="og:description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, чек у Viber та облік заробітку. 100% офлайн.">
+  <meta property="og:description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, деталізація вартості у Viber та облік заробітку. 100% офлайн.">
   <meta property="og:url" content="https://fomichovapps.com/uk/mover-erp/">
   <meta property="og:image" content="https://fomichovapps.com/assets/cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MoverERP — Розрахунок переїздів та вантажів для водіїв і вантажників">
-  <meta name="twitter:description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, чек у Viber та облік заробітку. 100% офлайн.">
+  <meta name="twitter:description" content="Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, деталізація вартості у Viber та облік заробітку. 100% офлайн.">
   <meta name="twitter:image" content="https://fomichovapps.com/assets/cover.jpg">
 
   <!-- Schema.org JSON-LD (@graph: SoftwareApplication, BreadcrumbList, FAQPage, Person) -->
@@ -89,14 +89,14 @@
       "screenshot": [
         "https://fomichovapps.com/assets/movererp/screen-main-uk.png",
         "https://fomichovapps.com/assets/movererp/screen-loaders-uk.png",
-        "https://fomichovapps.com/assets/movererp/screen-receipt-uk.png",
+        "https://fomichovapps.com/assets/movererp/screen-breakdown-uk.png",
         "https://fomichovapps.com/assets/movererp/screen-finance-uk.png"
       ],
-      "description": "Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, чек у Viber та облік заробітку. 100% офлайн.",
+      "description": "Зручний мобільний помічник для водіїв бусів, вантажників та диспетчерів. Розрахунок виїзду за 30 секунд: таймер, пронос, поверхи, деталізація вартості у Viber та облік заробітку. 100% офлайн.",
       "featureList": [
         "Таймер і гнучкий тариф авто",
         "Поверхи, пронос і негабарит",
-        "Чек для клієнта в месенджер",
+        "Розрахунок для клієнта в месенджер",
         "Напарники та диспетчери",
         "Каса, борги й чистий заробіток",
         "100% Офлайн і надійність"
@@ -133,7 +133,7 @@
           "name": "Чи бачить клієнт мої внутрішні витрати й виплати напарникам?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Категорично ні. Клієнтський чек формується окремо: там видно тільки тариф машини, відпрацьовані години, поверхи, кілометри та фінальну суму. Ваша каса, прибуток і відсотки диспетчера залишаються виключно у вашому телефоні."
+            "text": "Категорично ні. Розрахунок для клієнта формується окремо: там видно тільки тариф машини, відпрацьовані години, поверхи, кілометри та фінальну суму. Ваша каса, прибуток і відсотки диспетчера залишаються виключно у вашому телефоні."
           }
         },
         {
@@ -225,7 +225,7 @@
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-          Забудьте про паперові блокноти й калькулятор. Засікайте час роботи в один клік, додавайте поверхи кнопками [ - ] та [ + ], відправляйте прозорий чек у Viber або Telegram і чітко знайте свій чистий дохід.
+          Забудьте про паперові блокноти й калькулятор. Засікайте час роботи в один клік, додавайте поверхи кнопками [ - ] та [ + ], відправляйте прозорий розрахунок у Viber або Telegram і чітко знайте свій чистий дохід.
         </p>
 
         <!-- CTA & Features Pills -->
@@ -356,7 +356,7 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
             🧾
           </div>
-          <h3 class="text-base font-bold text-white">Чек для клієнта в месенджер</h3>
+          <h3 class="text-base font-bold text-white">Розрахунок для клієнта в месенджер</h3>
           <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
             Жодних розрахунків на пальцях. Натисніть кнопку — і додаток сформує зрозумілу розкладку по годинах, кілометрах та поверхах для відправки у Viber чи Telegram.
           </p>
@@ -421,10 +421,10 @@
         <!-- Screen 2 -->
         <div class="space-y-3 text-center flex flex-col items-center">
           <div class="w-full max-w-[300px] flex items-center justify-center">
-            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/movererp/screen-receipt-uk.webp" 
-                 alt="Екран формування чека для клієнта" 
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/movererp/screen-breakdown-uk.webp" 
+                 alt="Екран розрахунку для клієнта" 
                  class="w-full h-auto drop-shadow-xl select-none"
-                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-receipt-uk.png<br><span class=\'text-[10px] text-slate-500\'>Чек для клієнта</span></div>'">
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-breakdown-uk.png<br><span class=\'text-[10px] text-slate-500\'>Розрахунок для клієнта</span></div>'">
           </div>
           <p class="text-xs font-semibold text-slate-300">Деталізація для клієнта в 1 клік</p>
         </div>
@@ -509,7 +509,7 @@
         <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
           <h3 class="font-bold text-white text-sm sm:text-base">Чи бачить клієнт мої внутрішні витрати й виплати напарникам?</h3>
           <p class="text-slate-300 leading-relaxed">
-            Категорично ні. Клієнтський чек формується окремо: там видно тільки тариф машини, відпрацьовані години, поверхи, кілометри та фінальну суму. Ваша каса, прибуток і відсотки диспетчера залишаються виключно у вашому телефоні.
+            Категорично ні. Розрахунок для клієнта формується окремо: там видно тільки тариф машини, відпрацьовані години, поверхи, кілометри та фінальну суму. Ваша каса, прибуток і відсотки диспетчера залишаються виключно у вашому телефоні.
           </p>
         </div>
 
