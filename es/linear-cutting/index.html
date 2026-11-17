@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Cutting: optimizador de cortes lineales y almacén de retales</title>
+  <meta name="description" content="Optimizador de cortes lineales (1D) para Android: plano de corte de perfiles, tubos y barras con grosor de disco, saneado de borde y cortes a inglete, almacén de barras y retales, lista desde Excel, PDF y Excel.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#111827">
+  <meta name="author" content="Maksym Fomichov">
+
+  <!-- Canonical & Bidirectional Hreflang -->
+  <link rel="canonical" href="https://fomichovapps.com/es/linear-cutting/">
+  <link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/linear-cutting/">
+  <link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/linear-cutting/">
+  <link rel="alternate" hreflang="es" href="https://fomichovapps.com/es/linear-cutting/">
+  <link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/linear-cutting/">
+  <link rel="manifest" href="../../manifest.webmanifest">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/linear-cutting.png">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maksym Fomichov Apps">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="uk_UA">
+  <meta property="og:title" content="Linear Cutting: optimizador de cortes lineales y almacén de retales">
+  <meta property="og:description" content="Optimizador de cortes lineales (1D) para Android: plano de corte de perfiles, tubos y barras con grosor de disco, saneado de borde y cortes a inglete, almacén de barras y retales, lista desde Excel, PDF y Excel.">
+  <meta property="og:url" content="https://fomichovapps.com/es/linear-cutting/">
+  <meta property="og:image" content="https://fomichovapps.com/assets/cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="Linear Cutting: optimizador de cortes lineales">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Linear Cutting: optimizador de cortes lineales y almacén de retales">
+  <meta name="twitter:description" content="Optimizador de cortes lineales (1D) para Android: plano de corte de perfiles, tubos y barras con grosor de disco, saneado de borde y cortes a inglete, almacén de barras y retales, lista desde Excel, PDF y Excel.">
+  <meta name="twitter:image" content="https://fomichovapps.com/assets/cover.jpg">
+
+  <!-- Schema.org JSON-LD (@graph: SoftwareApplication, BreadcrumbList, FAQPage, Person) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://fomichovapps.com/#developer",
+      "name": "Maksym Fomichov",
+      "jobTitle": "Android Developer & Software Engineer",
+      "email": "fomichov.developer@gmail.com",
+      "url": "https://fomichovapps.com/en/",
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=5082361350201276993"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Maksym Fomichov Apps",
+          "item": "https://fomichovapps.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Linear Cutting: optimizador de cortes lineales",
+          "item": "https://fomichovapps.com/es/linear-cutting/"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://fomichovapps.com/es/linear-cutting/#app",
+      "name": "Linear Cutting: optimizador de cortes lineales",
+      "operatingSystem": "Android",
+      "applicationCategory": "UtilitiesApplication",
+      "inLanguage": ["en", "es", "pt-BR", "de", "fr", "it", "pl", "tr", "ar", "hi", "uk", "ru"],
+      "url": "https://fomichovapps.com/es/linear-cutting/",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting",
+      "image": "https://fomichovapps.com/assets/icons/linear-cutting.png",
+      "screenshot": [
+        "https://fomichovapps.com/assets/linear-cutting/screen-main-en.png",
+        "https://fomichovapps.com/assets/linear-cutting/screen-input-en.png",
+        "https://fomichovapps.com/assets/linear-cutting/screen-layout-en.png",
+        "https://fomichovapps.com/assets/linear-cutting/screen-stats-en.png"
+      ],
+      "description": "Optimizador de cortes lineales (1D) para Android: plano de corte de perfiles, tubos y barras con grosor de disco, saneado de borde y cortes a inglete, almacén de barras y retales, lista desde Excel, PDF y Excel.",
+      "featureList": [
+        "Cortes a inglete, grosor de disco y 4 tipos de perfil",
+        "Almacén de barras, retales e historial de movimientos",
+        "Plano de corte en PDF y exportación a Excel",
+        "Algoritmos Estándar y Óptimo con comparación",
+        "Funciona sin internet y carga la lista desde Excel",
+        "Datos solo en tu teléfono, 12 idiomas"
+      ],
+      "softwareHelp": "https://fomichovapps.com/legal/privacy-policy-en.html#linear-cutting",
+      "author": {
+        "@id": "https://fomichovapps.com/#developer"
+      },
+      "publisher": {
+        "@id": "https://fomichovapps.com/#developer"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://fomichovapps.com/es/linear-cutting/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de perfil y cortes a inglete admite Linear Cutting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La app admite 4 tipos de perfil: barra simple (varilla, tubo redondo o cortes solo a 90°), perfil simétrico (tubo cuadrado, por ejemplo 40x40), perfil asimétrico (marcos de ventanas, perfiles de fachada) y perfil rectangular (por ejemplo 60x40) colocado plano o de canto. Cada pieza puede llevar cortes a inglete y el plano marca las piezas giradas (🔄) y reflejadas (↔️)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funcionan el almacén, la prueba de cálculo y los retales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primero haces una prueba de cálculo: ves cuántas barras necesitas sin tocar el almacén. Con «Descontar del almacén» la app resta las barras y los retales usados y guarda los nuevos retales útiles (mayores que el retal mínimo del material). Si te equivocaste, puedes deshacer el descuento: el material vuelve al almacén."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre los algoritmos y cómo se tiene en cuenta el grosor del disco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El grosor del disco se descuenta automáticamente en cada corte y el saneado de borde al inicio de cada barra. El algoritmo Estándar (gratis) calcula al instante. El algoritmo Óptimo (Premium) prueba cientos de combinaciones y en pedidos complejos ahorra más material. Con «Comparar algoritmos» ves los dos resultados antes de cortar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo cargar la lista de piezas desde Excel y exportar el plano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La lista de piezas se carga desde un archivo Excel (.xlsx, .xls), TXT o CSV: columna A el largo, B la cantidad y C una nota. El plano de corte se exporta a PDF y el almacén a Excel (.csv) con Premium. Todo funciona sin internet."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="../../assets/css/comfort-theme.css">
+  <script src="../../assets/js/site-core.js"></script>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
+</head>
+<body class="has-mobile-cta bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../../en/" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Todas las apps</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+        <a href="./" class="flex items-center gap-2.5">
+          <img width="512" height="512" src="../../assets/icons/linear-cutting.webp" alt="Linear Cutting Logo" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=LC'">
+          <span class="font-extrabold text-base tracking-tight text-white">Linear <span class="text-brand-amber">Cutting</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Instalar desde Google Play</span>
+        </a>
+
+        <!-- Eye-Comfort Theme Switcher -->
+        <button type="button" class="theme-toggle-btn js-theme-toggle" aria-label="Cambiar tema"></button>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <a href="../../en/linear-cutting/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">ES</span>
+          <a href="../../uk/linear-cutting/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">UA</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Para herrería, cancelería, carpintería de aluminio y madera
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Menos desperdicio, <br>
+          <span class="text-brand-amber">más piezas por barra.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Optimizador de cortes lineales (1D) para tubo cuadrado y rectangular, perfiles de aluminio y PVC, tubo redondo, varilla y madera. Indica el grosor del disco, el saneado de borde y los cortes a inglete, lleva el almacén de barras y retales y obtén el plano de corte en PDF en segundos.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Descargar gratis
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Cómo funciona ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Algoritmos Estándar y Óptimo</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Inglete, grosor de disco y saneado</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Almacén, retales, PDF y Excel</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img width="1410" height="2968" fetchpriority="high" decoding="async" src="../../assets/linear-cutting/screen-main-en.webp" 
+               alt="Pantalla principal de Linear Cutting" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Linear Cutting</div><p class=\'text-xs text-slate-400\'>Captura:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/linear-cutting/screen-main-en.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BEFORE / AFTER / WORKSHOP REALITY -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Por qué cortar «a ojo» sale caro</h2>
+        <p class="text-sm text-slate-400">El tubo de acero y los perfiles de aluminio y PVC no paran de subir. Cada inglete mal calculado o cada retal olvidado en el taller se come tu ganancia.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Trap -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Cortar sin optimizar:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Olvidar el disco y el saneado:</strong> si no cuentas los 3–4 mm del disco y el corte del borde, la última pieza de la barra sale corta.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Material perdido en ingletes:</strong> cortar perfiles a 45° sin acomodar bien las piezas vecinas desperdicia decenas de centímetros por barra.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Retales olvidados:</strong> los sobrantes de 80–200 cm se acumulan en un rincón mientras se siguen cortando barras nuevas de 6 metros.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Linear Cutting Solution -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-emerald-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-emerald font-bold text-base">
+            <span>✓</span> Con Linear Cutting:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Dos algoritmos y comparación:</strong> el Estándar calcula al instante; el Óptimo (Premium) busca entre cientos de combinaciones el plano con menos desperdicio.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Ingletes y 4 tipos de perfil:</strong> barra simple, perfil simétrico, asimétrico y rectangular (plano o de canto), con marcas de pieza girada (🔄) y reflejada (↔️).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Almacén bajo control:</strong> primero usa los retales que tienes, descuenta las barras cortadas, guarda los nuevos retales útiles y registra cada movimiento.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Funciones</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Optimizador de cortes y almacén en tu taller</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📐
+          </div>
+          <h3 class="text-base font-bold text-white">Ingletes, grosor de disco y 4 tipos de perfil</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Tiene en cuenta el grosor del disco, el saneado de borde y la sección del perfil: barra simple, tubo cuadrado, perfil asimétrico de ventana o fachada y tubo rectangular (plano o de canto).
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📦
+          </div>
+          <h3 class="text-base font-bold text-white">Almacén, retales e historial</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Barras enteras y retales útiles con stock mínimo por material. Haz una prueba de cálculo para presupuestar o descuenta el pedido del almacén: los nuevos retales se guardan solos y el descuento se puede deshacer.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">Plano de corte en PDF y Excel</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Esquema visual de cada barra con ingletes y porcentaje de desperdicio; los esquemas iguales se agrupan. Exporta el plano a PDF para el taller y el almacén a Excel (Premium).
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚡
+          </div>
+          <h3 class="text-base font-bold text-white">Comparar algoritmos</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Compara el algoritmo Estándar con el Óptimo: cuántas barras hacen falta, cuántos retales quedan y qué porcentaje se desperdicia, antes de hacer un solo corte.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">Sin internet y lista desde Excel</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Funciona en el taller o en la obra sin conexión. Carga la lista de piezas desde Excel (.xlsx, .xls), TXT o CSV y guarda copias de seguridad de toda tu base de datos (Premium).
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Tus datos en tu teléfono y 12 idiomas</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sin registro ni nube: el almacén y los pedidos se quedan en tu dispositivo. Disponible en 12 idiomas, español incluido, con tema oscuro y claro.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Pensada para el taller</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Interfaz de alto contraste, ingletes bien visibles y paso rápido entre pedidos y almacén.</p>
+      </div>
+
+      <div class="mobile-screenshot-carousel grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/linear-cutting/screen-input-en.webp" 
+                 alt="Parámetros del pedido, ingletes y elección de algoritmo" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-input-en.png<br><span class=\'text-[10px] text-slate-500\'>Pedido e ingletes</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Pedido, ingletes y algoritmos</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/linear-cutting/screen-layout-en.webp" 
+                 alt="Plano de corte visual y exportación a PDF" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-layout-en.png<br><span class=\'text-[10px] text-slate-500\'>Plano de corte</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Plano de corte y exportación a PDF</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/linear-cutting/screen-stats-en.webp" 
+                 alt="Almacén, retales útiles e historial de movimientos" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-stats-en.png<br><span class=\'text-[10px] text-slate-500\'>Almacén y retales</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Almacén, retales e historial</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIDEO TUTORIALS -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Tutoriales en video</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Cinco lecciones cortas en español: del primer pedido al plano de corte en PDF.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="aspect-video w-full rounded-xl overflow-hidden border border-brand-border bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/imVJ_R-3uFQ" title="Linear Cutting: primer plano de corte" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-video w-full rounded-xl overflow-hidden border border-brand-border bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/VvtxJwhRVd4" title="Linear Cutting: lista de piezas desde Excel" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <p class="text-center text-xs sm:text-sm"><a href="https://www.youtube.com/@LinearCutting" target="_blank" rel="noopener noreferrer" class="text-brand-amber hover:underline">Ver todas las lecciones en YouTube →</a></p>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Preguntas frecuentes</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Qué tipos de perfil y cortes a inglete admite Linear Cutting?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            La app admite 4 tipos de perfil: barra simple (varilla, tubo redondo o cortes solo a 90°), perfil simétrico (tubo cuadrado, por ejemplo 40x40), perfil asimétrico (marcos de ventanas, perfiles de fachada) y perfil rectangular (por ejemplo 60x40) colocado plano o de canto. Cada pieza puede llevar cortes a inglete y el plano marca las piezas giradas (🔄) y reflejadas (↔️).
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Cómo funcionan el almacén, la prueba de cálculo y los retales?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Primero haces una prueba de cálculo: ves cuántas barras necesitas sin tocar el almacén. Con «Descontar del almacén» la app resta las barras y los retales usados y guarda los nuevos retales útiles (mayores que el retal mínimo del material). Si te equivocaste, puedes deshacer el descuento: el material vuelve al almacén.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Qué diferencia hay entre los algoritmos y cómo se tiene en cuenta el grosor del disco?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            El grosor del disco se descuenta automáticamente en cada corte y el saneado de borde al inicio de cada barra. El algoritmo Estándar (gratis) calcula al instante. El algoritmo Óptimo (Premium) prueba cientos de combinaciones y en pedidos complejos ahorra más material. Con «Comparar algoritmos» ves los dos resultados antes de cortar.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Puedo cargar la lista de piezas desde Excel y exportar el plano?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Sí. La lista de piezas se carga desde un archivo Excel (.xlsx, .xls), TXT o CSV: columna A el largo, B la cantidad y C una nota. El plano de corte se exporta a PDF y el almacén a Excel (.csv) con Premium. Todo funciona sin internet.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Corta con precisión y controla tu almacén</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Instala Linear Cutting gratis y ahorra perfiles, tubos y tiempo desde tu próximo pedido.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Descargar en Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Linear Cutting • Desarrollada por Maksym Fomichov</p>
+        <p>Soporte: <a href="mailto:fomichov.developer@gmail.com?subject=Pregunta%20sobre%20Linear%20Cutting" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy-en.html#linear-cutting" class="hover:text-white transition">Política de privacidad</a>
+        <span>•</span>
+        <a href="../../en/" class="hover:text-brand-blue transition">Todas las apps →</a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Sticky Mobile Bottom CTA Bar (Visible on phones <640px) -->
+  <div class="mobile-sticky-cta" role="region" aria-label="Instalación rápida">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <img src="../../assets/icons/linear-cutting.webp" alt="Linear Cutting" width="40" height="40" class="w-9 h-9 rounded-lg border border-slate-700 bg-slate-900 object-cover shrink-0">
+      <div class="truncate">
+        <div class="font-bold text-xs text-white truncate">Linear Cutting</div>
+        <div class="text-[10px] text-slate-400 truncate">Optimizador de cortes • PDF</div>
+      </div>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting" target="_blank" rel="noopener noreferrer"
+       class="js-gp-link inline-flex items-center gap-1.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-xs px-3.5 py-2.5 rounded-xl shadow-md shrink-0 transition active:scale-95">
+      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+      <span>Instalar gratis</span>
+    </a>
+  </div>
+</body>
+</html>

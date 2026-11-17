@@ -17,8 +17,9 @@
 
 ## Manufacturing, Retail & Finance Calculators
 
-- [Linear Cutting: 1D Cut List Optimizer & Warehouse](https://fomichovapps.com/en/linear-cutting/): Professional 1D linear bar cutting optimizer and warehouse stock manager for metal fabricators, window makers, welders, and carpenters. Features 3 packing algorithms (Fast Greedy FFD, Genetic, Exact Branch & Bound), 45° and 90° miter nesting across 4 profile geometries, saw blade kerf, bar edge trim, usable offcut/remnant inventory, Excel (.xlsx/.csv) import, and PDF cutting maps + QR thermal label export.
+- [Linear Cutting: 1D Cut List Optimizer & Warehouse](https://fomichovapps.com/en/linear-cutting/): Professional 1D linear bar cutting optimizer and warehouse stock manager for metal fabricators, window makers, welders, and carpenters. Features Standard (Greedy FFD) and Optimal (randomized heuristic, Premium) algorithms with side-by-side comparison, 45° and 90° miter nesting across 4 profile geometries, saw blade kerf, bar edge trim, usable offcut/remnant inventory, Excel (.xlsx/.xls/.csv/.txt) import, PDF cutting maps and Excel (.csv) stock export.
   - Ukrainian Version: [Лінійний Розкрій: Оптимізація](https://fomichovapps.com/uk/linear-cutting/)
+  - Spanish Version: [Linear Cutting: optimizador de cortes lineales](https://fomichovapps.com/es/linear-cutting/)
   - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.linearcutting
 
 - [Margin Pro: Margin, Markup & Break-Even Calculator](https://fomichovapps.com/en/margin-pro/): Commercial profitability calculator for retail and wholesale merchants. Prevents losses caused by confusing margin with markup, builds step-by-step discount matrices (1% or 5% increments), plots an interactive break-even zero-profit chart, accounts for VAT/sales taxes, and stores deal history offline with JSON backup.

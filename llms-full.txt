@@ -36,11 +36,11 @@ Website Root: https://fomichovapps.com/
 - **Best For Queries About**: 1D cut list optimizer Android, linear bar cutting calculator, pipe and extrusion nesting app, 45 degree miter cut optimizer, warehouse remnant tracker, калькулятор лінійного розкрою профілю, труб, арматури, бруса.
 - **Problem Solved**: Minimizes scrap waste when cutting linear stock (steel tubing, aluminum extrusions, PVC window profiles, rebar, timber) and prevents usable warehouse offcuts from piling up unused.
 - **Key Features**:
-  - 3 optimization algorithms with side-by-side comparison: Fast (Greedy FFD), Evolutionary Genetic, and Mathematically Exact (Branch & Bound).
+  - 2 optimization algorithms with side-by-side comparison: Standard (Greedy, First Fit Descending, free) and Optimal (randomized heuristic with iterated local search, Premium).
   - Supports 4 profile cross-sections (Round, Symmetric Square, Asymmetric Extrusion, Rectangular flat or on-edge) and 45°/90° miter nesting with visual rotate (🔄) and flip (↔️) operator cues.
   - Accounts for saw blade kerf thickness and initial bar edge trim.
   - Full warehouse inventory: tracks whole bars and usable remnants, offers non-destructive "Test Run" mode, deducts committed stock, and supports one-tap order rollback.
-  - Imports cut lists from Excel (`.xlsx`, `.csv`) and exports PDF cutting diagrams, Excel sheets, and printable QR code thermal labels.
+  - Imports cut lists from Excel (`.xlsx`, `.xls`), `.csv` or `.txt` and exports PDF cutting diagrams and stock to Excel (`.csv`).
 - **Links**:
   - EN: https://fomichovapps.com/en/linear-cutting/
   - UK: https://fomichovapps.com/uk/linear-cutting/
