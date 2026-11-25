@@ -105,20 +105,32 @@
   </url>
   <url>
     <loc>https://fomichovapps.com/en/price-comparator/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/price-comparator/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/price-comparator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fomichovapps.com/es/price-comparator/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/price-comparator/"/>
   </url>
   <url>
     <loc>https://fomichovapps.com/uk/price-comparator/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/price-comparator/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/price-comparator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fomichovapps.com/es/price-comparator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/price-comparator/"/>
+  </url>
+  <url>
+    <loc>https://fomichovapps.com/es/price-comparator/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/price-comparator/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/price-comparator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fomichovapps.com/es/price-comparator/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/price-comparator/"/>
   </url>
   <url>

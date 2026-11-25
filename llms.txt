@@ -32,6 +32,7 @@
 
 - [Unit Price Calculator: per Kg (formerly Price Comparator)](https://fomichovapps.com/en/price-comparator/): Anti-shrinkflation grocery shopping calculator that converts odd weights and volumes (e.g., 870 ml vs 1 L, 180 g vs 200 g) into true unit price per 1 kg, 1 liter, or 1 piece across up to 5 competing products, highlights the best deal in green, and saves editable store price history offline.
   - Ukrainian Version: [Калькулятор ціни за кг](https://fomichovapps.com/uk/price-comparator/)
+  - Spanish Version: [Calculadora de precio por kilo](https://fomichovapps.com/es/price-comparator/)
   - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice
 
 ## Education & Statistical Reference Utilities

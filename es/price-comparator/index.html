@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de precio por kilo, litro y unidad | App Android</title>
+  <meta name="description" content="App gratuita para Android: compara de 2 a 5 productos por precio por kilo, litro o unidad en un segundo. Descubre qué envase sale más barato, evita la reduflación y guarda el historial de precios.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#111827">
+  <meta name="author" content="Maksym Fomichov">
+
+  <!-- Canonical & Bidirectional Hreflang -->
+  <link rel="canonical" href="https://fomichovapps.com/es/price-comparator/">
+  <link rel="alternate" hreflang="en" href="https://fomichovapps.com/en/price-comparator/">
+  <link rel="alternate" hreflang="uk" href="https://fomichovapps.com/uk/price-comparator/">
+  <link rel="alternate" hreflang="es" href="https://fomichovapps.com/es/price-comparator/">
+  <link rel="alternate" hreflang="x-default" href="https://fomichovapps.com/en/price-comparator/">
+  <link rel="manifest" href="../../manifest.webmanifest">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/icons/price-comparator.png">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maksym Fomichov Apps">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="uk_UA">
+  <meta property="og:title" content="Calculadora de precio por kilo, litro y unidad | App Android">
+  <meta property="og:description" content="App gratuita para Android: compara de 2 a 5 productos por precio por kilo, litro o unidad en un segundo. Descubre qué envase sale más barato, evita la reduflación y guarda el historial de precios.">
+  <meta property="og:url" content="https://fomichovapps.com/es/price-comparator/">
+  <meta property="og:image" content="https://fomichovapps.com/assets/cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="Calculadora de precio por kilo, litro y unidad">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de precio por kilo, litro y unidad | App Android">
+  <meta name="twitter:description" content="App gratuita para Android: compara de 2 a 5 productos por precio por kilo, litro o unidad en un segundo. Descubre qué envase sale más barato, evita la reduflación y guarda el historial de precios.">
+  <meta name="twitter:image" content="https://fomichovapps.com/assets/cover.jpg">
+
+  <!-- Schema.org JSON-LD (@graph: SoftwareApplication, BreadcrumbList, FAQPage, Person) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://fomichovapps.com/#developer",
+      "name": "Maksym Fomichov",
+      "jobTitle": "Android Developer & Software Engineer",
+      "email": "fomichov.developer@gmail.com",
+      "url": "https://fomichovapps.com/en/",
+      "sameAs": [
+        "https://play.google.com/store/apps/dev?id=5082361350201276993"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Apps de Maksym Fomichov",
+          "item": "https://fomichovapps.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculadora de precio por kilo",
+          "item": "https://fomichovapps.com/es/price-comparator/"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://fomichovapps.com/es/price-comparator/#app",
+      "name": "Unit Price Calculator: per Kg",
+      "alternateName": ["Calculadora de precio por kilo", "Comparador de precios", "Price Comparator & Calculator"],
+      "operatingSystem": "Android",
+      "applicationCategory": "ShoppingApplication",
+      "inLanguage": [
+        "en",
+        "es",
+        "uk"
+      ],
+      "url": "https://fomichovapps.com/es/price-comparator/",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice",
+      "image": "https://fomichovapps.com/assets/icons/price-comparator.png",
+      "screenshot": [
+        "https://fomichovapps.com/assets/price-comparator/screen-main-es.png",
+        "https://fomichovapps.com/assets/price-comparator/screen-compare-es.png",
+        "https://fomichovapps.com/assets/price-comparator/screen-history-es.png",
+        "https://fomichovapps.com/assets/price-comparator/screen-volume-es.png"
+      ],
+      "description": "App gratuita para Android: compara de 2 a 5 productos por precio por kilo, litro o unidad en un segundo. Descubre qué envase sale más barato, evita la reduflación y guarda el historial de precios.",
+      "featureList": [
+        "Precio justo por 1 kg, 1 L o 1 unidad",
+        "Compara hasta 5 productos",
+        "Historial de cálculos y edición",
+        "Funciona 100 % sin conexión",
+        "Historial de precios con búsqueda y orden",
+        "Tema claro y oscuro, 16 idiomas",
+        "Sin registro",
+        "PRO, pago único: sin anuncios, copia de seguridad y restauración"
+      ],
+      "softwareHelp": "https://fomichovapps.com/legal/privacy-policy-en.html#price-comparator",
+      "author": {
+        "@id": "https://fomichovapps.com/#developer"
+      },
+      "publisher": {
+        "@id": "https://fomichovapps.com/#developer"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "description": "Gratis con anuncios. PRO es una compra única dentro de la app (sin suscripción).",
+        "url": "https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://fomichovapps.com/es/price-comparator/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no usar la calculadora del teléfono?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con una calculadora normal tienes que dividir el precio entre gramos raros, multiplicar por 1000, recordar resultados intermedios y calcular a mano la diferencia en porcentaje. En Unit Price Calculator el teclado está listo al abrir la app: introduces el precio y la cantidad en gramos o mililitros, y la app lo convierte todo a precio por 1 kg o 1 litro y marca claramente la mejor opción."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito internet en la tienda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Los cálculos se hacen en el propio teléfono y funcionan 100 % sin conexión. Puedes comparar precios en un supermercado en el sótano o en un hipermercado sin cobertura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo me ayuda a recordar precios de distintos supermercados?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cada cálculo se puede guardar con el nombre de la tienda y una breve descripción. Encuentras los registros anteriores con la búsqueda, los ordenas y, si cambia un precio, editas el registro existente sin empezar de cero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La app es gratuita?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Todos los cálculos, la comparación de hasta 5 productos y el historial de precios son gratis; la versión gratuita muestra anuncios. PRO es un pago único, sin suscripción: quita los anuncios y añade la copia de seguridad y restauración del historial en un archivo."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="../../assets/css/comfort-theme.css">
+  <script src="../../assets/js/site-core.js"></script>
+  <link rel="stylesheet" href="/assets/css/tailwind.css">
+</head>
+<body class="has-mobile-cta bg-brand-dark text-slate-100 font-sans antialiased selection:bg-amber-400 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Navigation -->
+  <header class="border-b border-brand-border bg-[#0a0f1d] sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="../../en/" class="text-xs font-semibold text-slate-400 hover:text-white transition flex items-center gap-1.5 mr-2">
+          ← <span class="hidden sm:inline">Todas las apps</span>
+        </a>
+        <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+<a href="./" class="flex items-center gap-2.5">
+          <img width="512" height="512" src="../../assets/icons/price-comparator.webp" alt="Logo de Unit Price Calculator" 
+               class="w-8 h-8 rounded-lg border border-slate-700 bg-slate-900 object-cover"
+               onerror="this.src='https://placehold.co/64x64/0f172a/f59e0b?text=PC'">
+          <span class="font-extrabold text-base tracking-tight text-white">Unit Price <span class="text-brand-amber">Calculator</span></span>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link hidden sm:inline-flex items-center gap-2 bg-brand-amber hover:bg-brand-amberHover text-black text-xs font-black px-4 py-2 rounded-lg transition active:scale-95 shadow-md shrink-0">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          <span>Instalar desde Google Play</span>
+        </a>
+
+        <!-- Eye-Comfort Theme Switcher -->
+        <button type="button" class="theme-toggle-btn js-theme-toggle" aria-label="Toggle theme"></button>
+
+        <!-- Lang Switcher -->
+        <div class="flex items-center text-xs font-bold border border-brand-border rounded-lg overflow-hidden bg-brand-card shrink-0">
+          <a href="../../en/price-comparator/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">EN</a>
+          <span class="px-2 sm:px-2.5 py-1 bg-brand-amber text-black">ES</span>
+          <a href="../../uk/price-comparator/" class="px-2 sm:px-2.5 py-1 text-slate-400 hover:text-white transition">UA</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 flex-grow w-full space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-brand-amber text-xs font-bold uppercase tracking-wider">
+          Protección contra la reduflación y las trampas de marketing
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Precio por kilo, litro o unidad. <br>
+          <span class="text-brand-amber">Descubre qué envase es realmente más barato.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          ¿Una botella de 870 ml o una de 1 litro? ¿Mantequilla de 180 g o de 200 g? Introduce el precio y la cantidad en gramos, mililitros o unidades: la calculadora obtiene al instante el precio real por 1 kg o 1 litro, marca la mejor opción y muestra la diferencia exacta en porcentaje, sin hacer cuentas de cabeza.
+        </p>
+
+        <!-- CTA & Features Pills -->
+        <div class="space-y-4 pt-2">
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+               target="_blank" rel="noopener noreferrer"
+               class="js-gp-link inline-flex items-center justify-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+              Descargar gratis
+            </a>
+            <a href="#logic" 
+               class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-card hover:bg-brand-border text-white text-sm font-bold border border-brand-border transition">
+              Cómo funciona ↓
+            </a>
+          </div>
+
+          <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs font-semibold text-slate-400">
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Funciona 100 % sin conexión</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Sin registro ni cuentas</span>
+            <span class="flex items-center gap-1.5"><span class="text-brand-emerald">✓</span> Compara hasta 5 productos</span>
+          </div>
+        </div>
+
+      </div>
+
+<!-- Hero Phone Screenshot Container -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[300px] sm:max-w-[330px] flex items-center justify-center">
+          <img width="1410" height="2968" fetchpriority="high" decoding="async" src="../../assets/price-comparator/screen-main-es.webp"
+               alt="Pantalla principal: comparación de precio por kilo" 
+               class="w-full h-auto drop-shadow-2xl select-none"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-center rounded-2xl border border-slate-800 bg-brand-card space-y-2\'><div class=\'text-brand-amber font-bold text-sm\'>Pantalla principal</div><p class=\'text-xs text-slate-400\'>Captura:<br><code class=\'text-slate-300 font-mono text-[11px]\'>assets/price-comparator/screen-main-es.png</code></p></div>'">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- BEFORE / AFTER / REAL LIFE PAIN -->
+    <section id="logic" class="rounded-2xl bg-brand-card border border-brand-border p-6 sm:p-10 space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Cómo el marketing te hace pagar de más</h2>
+        <p class="text-sm text-slate-400">Los fabricantes casi nunca suben el precio a la vista: reducen discretamente el peso o el volumen del envase.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Trap -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-red-900/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-red-400 font-bold text-base">
+            <span>✕</span> Trampas habituales en el lineal:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Tamaños engañosos:</strong> una botella de 870 ml un poco más barata parece mejor que una de 1000 ml, aunque su precio por litro sea bastante más alto.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>La ilusión del formato grande:</strong> los «formatos familiares» y los packs promocionales a menudo cuestan más por unidad que el envase normal.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-400 font-bold shrink-0">•</span>
+              <span><strong>Cálculos pesados:</strong> dividir precios entre pesos como 730 gramos con la calculadora normal es lento, incómodo y fácil de equivocarse.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- App Solution -->
+        <div class="rounded-xl bg-[#0a0f1d] border border-emerald-500/40 p-6 space-y-4">
+          <div class="flex items-center gap-2 text-brand-emerald font-bold text-base">
+            <span>✓</span> Cómo lo resuelve la app:
+          </div>
+          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Misma referencia:</strong> convierte al instante cualquier peso, volumen o cantidad en el precio real por 1 kg, 1 litro o 1 unidad.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Veredicto inmediato:</strong> la opción más rentable se marca en verde y los demás productos muestran el % exacto que pagarías de más.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-emerald font-bold shrink-0">•</span>
+              <span><strong>Historial y cambios de precio:</strong> guarda los cálculos por tienda y edita precios o pesos en cualquier momento.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES GRID -->
+    <section class="space-y-10">
+      <div class="border-b border-brand-border pb-4">
+        <span class="text-xs font-bold text-brand-amber uppercase tracking-wider">Funciones y usos</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Precio por unidad exacto en cada compra</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            ⚖️
+          </div>
+          <h3 class="text-base font-bold text-white">Precio justo por 1 kg, 1 L o 1 unidad</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Modos para peso (g), volumen (ml) y unidades. Introduce los números tal como aparecen en la etiqueta, sin decimales raros: la app convierte las unidades y calcula el precio de referencia.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">Compara hasta 5 productos</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Añade columnas con un solo toque y compara 3, 4 o 5 marcas del mismo lineal una al lado de otra, sin borrar la pantalla.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📝
+          </div>
+          <h3 class="text-base font-bold text-white">Historial de cálculos y edición</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Guarda las comparaciones con el nombre de la tienda y notas. Si cambia una etiqueta de precio, edita el registro en su propia pantalla sin volver a introducir todo.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            📴
+          </div>
+          <h3 class="text-base font-bold text-white">Funciona 100 % sin conexión</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Muchos supermercados están en sótanos o naves donde no hay cobertura. Todos los cálculos se hacen en el propio teléfono.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            💾
+          </div>
+          <h3 class="text-base font-bold text-white">Copia de seguridad (PRO)</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Con PRO exportas todo el historial de precios a un archivo y lo restauras en un teléfono nuevo. PRO es un pago único, sin suscripción, y además quita los anuncios.
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-brand-card border border-brand-border rounded-2xl p-6 space-y-3 hover:border-slate-700 transition">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-lg">
+            🔒
+          </div>
+          <h3 class="text-base font-bold text-white">Sin registro</h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sin cuenta, sin número de teléfono, sin escanear tickets y sin permisos innecesarios. Abres la app y comparas. Disponible en 16 idiomas, con tema claro y oscuro.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS SHOWCASE -->
+    <section class="space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Clara y cómoda en el pasillo del súper</h2>
+        <p class="text-xs sm:text-sm text-slate-400">Números grandes, teclado numérico ágil y la mejor oferta marcada al instante.</p>
+      </div>
+
+      <div class="mobile-screenshot-carousel grid grid-cols-1 sm:grid-cols-3 gap-8 pt-4 items-start">
+        
+        <!-- Screen 1 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/price-comparator/screen-compare-es.webp" 
+                 alt="Comparación de 5 productos en tema oscuro" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-compare-es.png<br><span class=\'text-[10px] text-slate-500\'>Compara hasta 5 productos</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Compara productos en el lineal</p>
+        </div>
+
+        <!-- Screen 2 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/price-comparator/screen-history-es.webp" 
+                 alt="Historial de cálculos con búsqueda" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-history-es.png<br><span class=\'text-[10px] text-slate-500\'>Historial de cálculos</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Historial con registros editables</p>
+        </div>
+
+        <!-- Screen 3 -->
+        <div class="space-y-3 text-center flex flex-col items-center">
+          <div class="w-full max-w-[300px] flex items-center justify-center">
+            <img width="1410" height="2968" loading="lazy" decoding="async" src="../../assets/price-comparator/screen-volume-es.webp" 
+                 alt="Comparación por volumen: precio por litro" 
+                 class="w-full h-auto drop-shadow-xl select-none"
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-6 text-xs text-slate-400 rounded-xl border border-slate-800 bg-brand-card\'>screen-volume-es.png<br><span class=\'text-[10px] text-slate-500\'>Modo volumen</span></div>'">
+          </div>
+          <p class="text-xs font-semibold text-slate-300">Modo volumen: precio por litro</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-6 max-w-3xl mx-auto">
+      <h2 class="text-2xl font-extrabold text-white text-center">Preguntas frecuentes</h2>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Por qué no usar la calculadora del teléfono?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Con una calculadora normal tienes que dividir el precio entre gramos raros, multiplicar por 1000, recordar resultados intermedios y calcular a mano la diferencia en porcentaje. En Unit Price Calculator el teclado está listo al abrir la app: introduces el precio y la cantidad en gramos o mililitros, y la app lo convierte todo a precio por 1 kg o 1 litro y marca claramente la mejor opción.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Necesito internet en la tienda?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            No. Los cálculos se hacen en el propio teléfono y funcionan 100 % sin conexión. Puedes comparar precios en un supermercado en el sótano o en un hipermercado sin cobertura.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿Cómo me ayuda a recordar precios de distintos supermercados?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Cada cálculo se puede guardar con el nombre de la tienda y una breve descripción. Encuentras los registros anteriores con la búsqueda, los ordenas y, si cambia un precio, editas el registro existente sin empezar de cero.
+          </p>
+        </div>
+
+        <div class="bg-brand-card border border-brand-border rounded-xl p-5 space-y-2">
+          <h3 class="font-bold text-white text-sm sm:text-base">¿La app es gratuita?</h3>
+          <p class="text-slate-300 leading-relaxed">
+            Sí. Todos los cálculos, la comparación de hasta 5 productos y el historial de precios son gratis; la versión gratuita muestra anuncios. PRO es un pago único, sin suscripción: quita los anuncios y añade la copia de seguridad y restauración del historial en un archivo.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="rounded-2xl bg-gradient-to-b from-[#131d31] to-brand-card border border-brand-amber/40 p-8 sm:p-10 text-center space-y-5">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Compra con cabeza y no pagues de más</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
+        Instala Unit Price Calculator y empieza a ahorrar en tu próxima compra en el supermercado.
+      </p>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" 
+           target="_blank" rel="noopener noreferrer"
+           class="js-gp-link inline-flex items-center gap-2.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-lg transition active:scale-95">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+          Descargar en Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border bg-[#0a0f1d] py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="text-center sm:text-left space-y-1">
+        <p class="font-bold text-white">Unit Price Calculator • Desarrollada por Maksym Fomichov</p>
+        <p>Soporte: <a href="mailto:fomichov.developer@gmail.com?subject=Pregunta%20sobre%20Unit%20Price%20Calculator" class="text-brand-amber hover:underline">fomichov.developer@gmail.com</a></p>
+      </div>
+
+<div class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <a href="../../legal/privacy-policy-en.html#price-comparator" class="hover:text-white transition">Política de privacidad</a>
+        <span>•</span>
+        <a href="../../en/" class="hover:text-brand-blue transition">Todas las apps →</a>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Sticky Mobile Bottom CTA Bar (Visible on phones <640px) -->
+  <div class="mobile-sticky-cta" role="region" aria-label="Quick install bar">
+    <div class="flex items-center gap-2.5 min-w-0">
+      <img src="../../assets/icons/price-comparator.webp" alt="Unit Price Calculator" width="40" height="40" class="w-9 h-9 rounded-lg border border-slate-700 bg-slate-900 object-cover shrink-0">
+      <div class="truncate">
+        <div class="font-bold text-xs text-white truncate">Unit Price Calculator</div>
+        <div class="text-[10px] text-slate-400 truncate">Precio por 1 kg / 1 L • Sin conexión</div>
+      </div>
+    </div>
+    <a href="https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice" target="_blank" rel="noopener noreferrer"
+       class="js-gp-link inline-flex items-center gap-1.5 bg-brand-amber hover:bg-brand-amberHover text-black font-extrabold text-xs px-3.5 py-2.5 rounded-xl shadow-md shrink-0 transition active:scale-95">
+      <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a2.41 2.41 0 0 1-.61-.954V2.768c.15-.37.363-.7.61-.954zm11.603 11.604l2.49 2.49-11.232 6.447 8.742-8.937zM4.47 1.253L15.7 7.7l-2.489 2.49L4.47 1.253zm13.149 7.747l2.84 1.63c1.02.585 1.02 1.542 0 2.128l-2.84 1.63-2.12-2.12 2.12-2.268z"/></svg>
+      <span>Instalar gratis</span>
+    </a>
+  </div>
+</body>
+</html>
