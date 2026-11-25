@@ -30,8 +30,8 @@
   - Ukrainian Version: [Expense Sheet: Облік витрат](https://fomichovapps.com/uk/expense-sheet/)
   - Google Play: https://play.google.com/store/apps/details?id=com.apps.fomichov.m.ExpenseSheet
 
-- [Price Comparator & Unit Price Calculator](https://fomichovapps.com/en/price-comparator/): Anti-shrinkflation grocery shopping calculator that converts odd weights and volumes (e.g., 870 ml vs 1 L, 180 g vs 200 g) into true unit price per 1 kg, 1 liter, or 1 piece across up to 5 competing products, highlights the best deal in green, and saves editable store price history offline.
-  - Ukrainian Version: [Порівняння цін і Калькулятор вигоди](https://fomichovapps.com/uk/price-comparator/)
+- [Unit Price Calculator: per Kg (formerly Price Comparator)](https://fomichovapps.com/en/price-comparator/): Anti-shrinkflation grocery shopping calculator that converts odd weights and volumes (e.g., 870 ml vs 1 L, 180 g vs 200 g) into true unit price per 1 kg, 1 liter, or 1 piece across up to 5 competing products, highlights the best deal in green, and saves editable store price history offline.
+  - Ukrainian Version: [Калькулятор ціни за кг](https://fomichovapps.com/uk/price-comparator/)
   - Google Play: https://play.google.com/store/apps/details?id=com.gmail.fomichov.m.compareprice
 
 ## Education & Statistical Reference Utilities
